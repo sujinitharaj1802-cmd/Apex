@@ -118,21 +118,21 @@ export const DashboardPage: React.FC = () => {
       </div>
 
       {/* Active Role Command Context Strip */}
-      <div className="bg-[#0E1626] border border-slate-800 rounded-sm p-3 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
+      <div className="bg-surface border border-border rounded-sm p-3 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
         <div className="flex items-center space-x-3">
-          <div className="p-2 rounded bg-slate-900 border border-slate-700 text-blue-400">
+          <div className="p-2 rounded-xs bg-bg border border-border text-accent">
             <UserCheck className="w-4 h-4" />
           </div>
           <div>
             <div className="flex items-center space-x-2">
-              <span className="text-[11px] text-slate-400 font-semibold">Active Console Profile:</span>
-              <span className={`px-2 py-0.5 rounded-xs text-[11px] font-bold border ${roleConfig.badgeColor}`}>
+              <span className="text-[11px] text-text-muted font-semibold">Active Console Profile:</span>
+              <span className="px-2 py-0.5 rounded-xs text-[11px] font-bold border border-border bg-bg text-text">
                 {roleConfig.title} ({roleConfig.badge})
               </span>
-              <span className="text-slate-500 hidden sm:inline">• {roleConfig.districtFocus}</span>
+              <span className="text-text-muted hidden sm:inline">• {roleConfig.districtFocus}</span>
             </div>
-            <div className="text-[11px] text-slate-300 mt-0.5 font-sans">
-              <strong>Operational Focus:</strong> {roleConfig.primaryFocus}
+            <div className="text-[11px] text-text-muted mt-0.5 font-sans">
+              <strong className="text-text">Operational Focus:</strong> {roleConfig.primaryFocus}
             </div>
           </div>
         </div>
@@ -143,14 +143,14 @@ export const DashboardPage: React.FC = () => {
             <>
               <button
                 onClick={() => setCurrentScreen('alerts')}
-                className="px-2.5 py-1 rounded-xs bg-red-950 text-red-300 border border-red-800 hover:bg-red-900 transition-colors text-[11px] flex items-center space-x-1"
+                className="px-2.5 py-1 rounded-xs bg-alert text-text border border-alert hover:opacity-90 transition-colors text-[11px] flex items-center space-x-1"
               >
                 <span>Triage Queue (45)</span>
                 <ChevronRight className="w-3 h-3" />
               </button>
               <button
                 onClick={() => setCurrentScreen('cameras')}
-                className="px-2.5 py-1 rounded-xs bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-colors text-[11px] flex items-center space-x-1"
+                className="px-2.5 py-1 rounded-xs bg-bg text-text-muted border border-border hover:bg-surface transition-colors text-[11px] flex items-center space-x-1"
               >
                 <span>Camera Catalog</span>
                 <ChevronRight className="w-3 h-3" />
@@ -162,14 +162,14 @@ export const DashboardPage: React.FC = () => {
             <>
               <button
                 onClick={() => setCurrentScreen('tracking')}
-                className="px-2.5 py-1 rounded-xs bg-emerald-950 text-emerald-300 border border-emerald-800 hover:bg-emerald-900 transition-colors text-[11px] flex items-center space-x-1"
+                className="px-2.5 py-1 rounded-xs bg-accent text-bg border border-accent hover:opacity-90 transition-colors text-[11px] flex items-center space-x-1 font-bold"
               >
                 <span>Authorize Interception (SIM-VH-0238)</span>
                 <ChevronRight className="w-3 h-3" />
               </button>
               <button
                 onClick={() => setCurrentScreen('health')}
-                className="px-2.5 py-1 rounded-xs bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-colors text-[11px] flex items-center space-x-1"
+                className="px-2.5 py-1 rounded-xs bg-bg text-text-muted border border-border hover:bg-surface transition-colors text-[11px] flex items-center space-x-1"
               >
                 <span>O&M SLA Queue</span>
                 <ChevronRight className="w-3 h-3" />
@@ -181,14 +181,14 @@ export const DashboardPage: React.FC = () => {
             <>
               <button
                 onClick={() => setCurrentScreen('integration')}
-                className="px-2.5 py-1 rounded-xs bg-blue-950 text-blue-300 border border-blue-800 hover:bg-blue-900 transition-colors text-[11px] flex items-center space-x-1"
+                className="px-2.5 py-1 rounded-xs bg-surface text-text border border-border hover:bg-bg transition-colors text-[11px] flex items-center space-x-1"
               >
                 <span>26-Dept Federation</span>
                 <ChevronRight className="w-3 h-3" />
               </button>
               <button
                 onClick={() => setCurrentScreen('audit')}
-                className="px-2.5 py-1 rounded-xs bg-amber-950 text-amber-300 border border-amber-800 hover:bg-amber-900 transition-colors text-[11px] flex items-center space-x-1"
+                className="px-2.5 py-1 rounded-xs bg-bg text-accent border border-border hover:bg-surface transition-colors text-[11px] flex items-center space-x-1"
               >
                 <span>Verify SHA-256 Ledger</span>
                 <ChevronRight className="w-3 h-3" />
@@ -204,14 +204,14 @@ export const DashboardPage: React.FC = () => {
         <div className="lg:col-span-8 flex flex-col space-y-2">
           <div className="flex items-center justify-between px-1">
             <div className="flex items-center space-x-2">
-              <h2 className="text-xs font-bold text-slate-200 tracking-tight">
+              <h2 className="text-xs font-bold text-text tracking-tight">
                 Statewide GIS Sensor Network
               </h2>
-              <span className="text-[11px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-xs text-slate-400">
+              <span className="text-[11px] bg-bg border border-border px-2 py-0.5 rounded-xs text-text-muted">
                 Representative simulated camera locations
               </span>
             </div>
-            <div className="text-[11px] text-slate-400 hidden sm:block">
+            <div className="text-[11px] text-text-muted hidden sm:block">
               Click marker for telemetry • 80,000+ total fleet represented
             </div>
           </div>
@@ -226,12 +226,12 @@ export const DashboardPage: React.FC = () => {
         </div>
 
         {/* RIGHT: Live incident queue */}
-        <div className="lg:col-span-4 bg-[#0E1626] border border-slate-800 rounded-sm overflow-hidden flex flex-col h-[620px]">
+        <div className="lg:col-span-4 bg-surface border border-border rounded-sm overflow-hidden flex flex-col h-[620px]">
           {/* Header */}
-          <div className="p-3 bg-[#0B1120] border-b border-slate-800 flex items-center justify-between">
+          <div className="p-3 bg-bg border-b border-border flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Radio className="w-3.5 h-3.5 text-red-400" />
-              <h3 className="text-xs font-bold tracking-tight text-white">
+              <Radio className="w-3.5 h-3.5 text-alert" />
+              <h3 className="text-xs font-bold tracking-tight text-text">
                 Live Incident Center
               </h3>
             </div>
@@ -241,8 +241,8 @@ export const DashboardPage: React.FC = () => {
                 onClick={toggleFeedPause}
                 className={`px-2 py-0.5 rounded-xs text-[11px] border transition-colors flex items-center space-x-1 ${
                   isFeedPaused
-                    ? 'bg-amber-950 text-amber-300 border-amber-700'
-                    : 'bg-slate-900 text-slate-300 border-slate-700 hover:text-white'
+                    ? 'bg-alert text-text border-alert'
+                    : 'bg-bg text-text-muted border-border hover:text-text'
                 }`}
                 title="Pause live alert ticker for speaking"
               >
@@ -253,7 +253,7 @@ export const DashboardPage: React.FC = () => {
                   </>
                 ) : (
                   <>
-                    <Pause className="w-2.5 h-2.5" />
+                    <Pause className="w-2.5 h-2.5 text-accent" />
                     <span>Pause Live Feed</span>
                   </>
                 )}
@@ -266,34 +266,30 @@ export const DashboardPage: React.FC = () => {
             {alerts.slice(0, 30).map((alert, idx) => {
               const borderClass =
                 alert.severity === 'CRITICAL'
-                  ? 'border-l-4 border-l-red-500 border-slate-800'
-                  : alert.severity === 'HIGH'
-                  ? 'border-l-4 border-l-orange-500 border-slate-800'
-                  : alert.severity === 'MEDIUM'
-                  ? 'border-l-4 border-l-amber-500 border-slate-800'
-                  : 'border-l-4 border-l-slate-500 border-slate-800';
+                  ? 'border-l-4 border-l-alert border-border'
+                  : 'border-l-4 border-l-accent border-border';
 
               return (
                 <div
                   key={`${alert.id}-${idx}`}
                   onClick={() => handleAlertClick(alert)}
-                  className={`p-2.5 rounded bg-slate-900/60 hover:bg-slate-800/80 border transition-all cursor-pointer ${borderClass}`}
+                  className={`p-2.5 rounded-xs bg-bg hover:bg-surface border transition-all cursor-pointer ${borderClass}`}
                 >
-                  <div className="flex items-center justify-between text-[10px] font-mono mb-1">
+                  <div className="flex items-center justify-between text-[10px] mb-1">
                     <div className="flex items-center space-x-2">
-                      <span className="font-bold text-white">{alert.id}</span>
+                      <span className="font-bold text-text">{alert.id}</span>
                       <StatusPill status={alert.severity} size="sm" />
                     </div>
-                    <span className="text-slate-400">{alert.timestamp}</span>
+                    <span className="text-text-muted">{alert.timestamp}</span>
                   </div>
 
-                  <div className="text-xs font-semibold text-slate-100 mt-0.5">
+                  <div className="text-xs font-semibold text-text mt-0.5">
                     {alert.title}
                   </div>
 
-                  <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 mt-1.5">
+                  <div className="flex items-center justify-between text-[11px] text-text-muted mt-1.5">
                     <span className="truncate max-w-[200px]">{alert.district} • {alert.locationName}</span>
-                    <span className="text-slate-300 font-bold text-[10px]">{alert.confidence}% conf</span>
+                    <span className="text-accent font-bold text-[10px]">{alert.confidence}% conf</span>
                   </div>
                 </div>
               );
@@ -301,15 +297,15 @@ export const DashboardPage: React.FC = () => {
           </div>
 
           {/* Footer Bar */}
-          <div className="p-2.5 bg-[#0B1120] border-t border-slate-800 flex items-center justify-between text-xs font-mono">
-            <span className="text-[10px] text-slate-500">
+          <div className="p-2.5 bg-bg border-t border-border flex items-center justify-between text-xs">
+            <span className="text-[10px] text-text-muted">
               Showing active simulated queue
             </span>
             <button
               onClick={() => setCurrentScreen('alerts')}
-              className="text-blue-400 hover:text-blue-300 text-xs font-bold flex items-center space-x-1"
+              className="text-accent hover:underline text-xs font-bold flex items-center space-x-1"
             >
-              <span>VIEW ALL ALERTS</span>
+              <span>View All Alerts</span>
               <ArrowRight className="w-3 h-3" />
             </button>
           </div>
@@ -318,17 +314,17 @@ export const DashboardPage: React.FC = () => {
 
       {/* Camera Inspection Slide-over Drawer */}
       {inspectDrawerCamera && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex justify-end">
-          <div className="bg-[#0F172A] border-l border-slate-700 w-full max-w-md h-full overflow-y-auto p-5 space-y-4 shadow-2xl flex flex-col justify-between">
+        <div className="fixed inset-0 z-50 bg-bg/80 backdrop-blur-xs flex justify-end">
+          <div className="bg-surface border-l border-border w-full max-w-md h-full overflow-y-auto p-5 space-y-4 shadow-2xl flex flex-col justify-between">
             <div className="space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div className="flex items-center justify-between border-b border-border pb-3">
                 <div>
-                  <div className="text-xs font-mono text-blue-400 font-bold">{inspectDrawerCamera.id}</div>
-                  <h3 className="text-sm font-bold text-white">{inspectDrawerCamera.name}</h3>
+                  <div className="text-xs text-accent font-bold">{inspectDrawerCamera.id}</div>
+                  <h3 className="text-sm font-bold text-text">{inspectDrawerCamera.name}</h3>
                 </div>
                 <button
                   onClick={() => setInspectDrawerCamera(null)}
-                  className="p-1 rounded hover:bg-slate-800 text-slate-400 hover:text-white"
+                  className="p-1 rounded-xs hover:bg-bg text-text-muted hover:text-text"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -344,45 +340,45 @@ export const DashboardPage: React.FC = () => {
               />
 
               {/* Camera Details */}
-              <div className="bg-[#0B1120] border border-slate-800 rounded p-3.5 space-y-2 font-mono text-xs">
-                <div className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold border-b border-slate-800 pb-1 flex items-center justify-between">
+              <div className="bg-bg border border-border rounded-xs p-3.5 space-y-2 text-xs">
+                <div className="text-[10px] text-text-muted font-semibold border-b border-border pb-1 flex items-center justify-between">
                   <span>Hardware & Network Specs</span>
                   <StatusPill status={inspectDrawerCamera.status} />
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">District:</span>
-                  <span className="text-white">{inspectDrawerCamera.district}</span>
+                  <span className="text-text-muted">District:</span>
+                  <span className="text-text">{inspectDrawerCamera.district}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Department:</span>
-                  <span className="text-white">{inspectDrawerCamera.dept}</span>
+                  <span className="text-text-muted">Department:</span>
+                  <span className="text-text">{inspectDrawerCamera.dept}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Vendor OEM:</span>
-                  <span className="text-white">{inspectDrawerCamera.vendor}</span>
+                  <span className="text-text-muted">Vendor OEM:</span>
+                  <span className="text-text">{inspectDrawerCamera.vendor}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Resolution:</span>
-                  <span className="text-white">{inspectDrawerCamera.resolution}</span>
+                  <span className="text-text-muted">Resolution:</span>
+                  <span className="text-text">{inspectDrawerCamera.resolution}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">VLAN IP:</span>
-                  <span className="text-slate-300">{inspectDrawerCamera.ipAddress}</span>
+                  <span className="text-text-muted">VLAN IP:</span>
+                  <span className="text-text-muted">{inspectDrawerCamera.ipAddress}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Firmware:</span>
-                  <span className="text-slate-300">{inspectDrawerCamera.firmware}</span>
+                  <span className="text-text-muted">Firmware:</span>
+                  <span className="text-text-muted">{inspectDrawerCamera.firmware}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">30-Day Uptime:</span>
-                  <span className="text-emerald-400 font-bold">{inspectDrawerCamera.uptime30d}%</span>
+                  <span className="text-text-muted">30-Day Uptime:</span>
+                  <span className="text-accent font-bold">{inspectDrawerCamera.uptime30d}%</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Last Heartbeat:</span>
-                  <span className="text-slate-300">{inspectDrawerCamera.lastHeartbeat}</span>
+                  <span className="text-text-muted">Last Heartbeat:</span>
+                  <span className="text-text-muted">{inspectDrawerCamera.lastHeartbeat}</span>
                 </div>
                 {inspectDrawerCamera.failureReason && (
-                  <div className="pt-2 border-t border-slate-800 text-amber-400 text-xs">
+                  <div className="pt-2 border-t border-border text-alert text-xs">
                     <strong>Warning:</strong> {inspectDrawerCamera.failureReason}
                   </div>
                 )}
@@ -390,11 +386,11 @@ export const DashboardPage: React.FC = () => {
             </div>
 
             {/* Actions */}
-            <div className="space-y-2 pt-3 border-t border-slate-800">
+            <div className="space-y-2 pt-3 border-t border-border">
               {(inspectDrawerCamera.status === 'degraded' || inspectDrawerCamera.status === 'offline') && (
                 <button
                   onClick={() => handleCreateWorkOrder(inspectDrawerCamera)}
-                  className="w-full py-2 px-3 bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold rounded flex items-center justify-center space-x-1.5 transition-colors"
+                  className="w-full py-2 px-3 bg-alert hover:opacity-90 text-text text-xs font-bold rounded-xs flex items-center justify-center space-x-1.5 transition-colors"
                 >
                   <Wrench className="w-3.5 h-3.5" />
                   <span>Generate Simulated Work Order</span>
@@ -403,7 +399,7 @@ export const DashboardPage: React.FC = () => {
 
               <button
                 onClick={() => setInspectDrawerCamera(null)}
-                className="w-full py-2 px-3 bg-slate-800 hover:bg-slate-750 text-slate-300 font-mono text-xs rounded transition-colors"
+                className="w-full py-2 px-3 bg-bg hover:bg-surface text-text-muted text-xs rounded-xs border border-border transition-colors font-medium"
               >
                 Close Panel
               </button>

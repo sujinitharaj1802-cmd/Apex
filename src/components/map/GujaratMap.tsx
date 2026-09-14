@@ -227,16 +227,16 @@ export const GujaratMap: React.FC<GujaratMapProps> = ({
   };
 
   return (
-    <div className="relative w-full rounded-lg overflow-hidden border border-slate-800 shadow-md bg-[#080D1A]">
+    <div className="relative w-full rounded-sm overflow-hidden border border-border bg-bg">
       {/* Top Map Control Bar */}
-      <div className="absolute top-3 left-3 right-3 z-[400] flex flex-wrap items-center justify-between gap-2 bg-[#0F172A]/95 p-2 rounded border border-slate-700 shadow-lg text-xs font-mono">
+      <div className="absolute top-3 left-3 right-3 z-[400] flex flex-wrap items-center justify-between gap-2 bg-surface/95 p-2 rounded-xs border border-border text-xs">
         <div className="flex flex-wrap items-center gap-2">
           {/* District Selector */}
           <select
             value={selectedDistrict}
             onChange={(e) => handleDistrictChange(e.target.value)}
             aria-label="Filter cameras by district"
-            className="bg-[#0B1120] text-slate-200 border border-slate-700 rounded px-2.5 py-1 text-xs focus:outline-none focus:border-blue-500"
+            className="bg-bg text-text border border-border rounded-xs px-2.5 py-1 text-xs focus:outline-none focus:border-accent"
           >
             <option value="all">Gujarat State (All {cameras.length} Representative Nodes)</option>
             {DISTRICT_CENTROIDS.map((c) => (
@@ -247,36 +247,36 @@ export const GujaratMap: React.FC<GujaratMapProps> = ({
           </select>
 
           {/* Status Filter */}
-          <div className="flex items-center space-x-1 bg-[#0B1120] rounded p-0.5 border border-slate-800">
-            <Filter className="w-3 h-3 text-slate-500 ml-1" />
+          <div className="flex items-center space-x-1 bg-bg rounded-xs p-0.5 border border-border">
+            <Filter className="w-3 h-3 text-text-muted ml-1" />
             <button
               onClick={() => setInternalStatusFilter('all')}
-              className={`px-2 py-0.5 rounded text-[11px] transition-colors ${
-                internalStatusFilter === 'all' ? 'bg-slate-800 text-white font-bold' : 'text-slate-400 hover:text-slate-200'
+              className={`px-2 py-0.5 rounded-xs text-[11px] transition-colors ${
+                internalStatusFilter === 'all' ? 'bg-accent text-bg font-bold' : 'text-text-muted hover:text-text'
               }`}
             >
               All
             </button>
             <button
               onClick={() => setInternalStatusFilter('online')}
-              className={`px-1.5 py-0.5 rounded text-[10px] transition-colors ${
-                internalStatusFilter === 'online' ? 'bg-emerald-950 text-emerald-300 font-bold' : 'text-slate-400 hover:text-emerald-400'
+              className={`px-1.5 py-0.5 rounded-xs text-[10px] transition-colors ${
+                internalStatusFilter === 'online' ? 'bg-accent text-bg font-bold' : 'text-text-muted hover:text-accent'
               }`}
             >
               Online
             </button>
             <button
               onClick={() => setInternalStatusFilter('degraded')}
-              className={`px-1.5 py-0.5 rounded text-[10px] transition-colors ${
-                internalStatusFilter === 'degraded' ? 'bg-amber-950 text-amber-300 font-bold' : 'text-slate-400 hover:text-amber-400'
+              className={`px-1.5 py-0.5 rounded-xs text-[10px] transition-colors ${
+                internalStatusFilter === 'degraded' ? 'bg-accent text-bg font-bold' : 'text-text-muted hover:text-accent'
               }`}
             >
               Degraded
             </button>
             <button
               onClick={() => setInternalStatusFilter('offline')}
-              className={`px-1.5 py-0.5 rounded text-[10px] transition-colors ${
-                internalStatusFilter === 'offline' ? 'bg-red-950 text-red-300 font-bold' : 'text-slate-400 hover:text-red-400'
+              className={`px-1.5 py-0.5 rounded-xs text-[10px] transition-colors ${
+                internalStatusFilter === 'offline' ? 'bg-alert text-text font-bold' : 'text-text-muted hover:text-alert'
               }`}
             >
               Offline
@@ -287,35 +287,35 @@ export const GujaratMap: React.FC<GujaratMapProps> = ({
           <button
             onClick={resetView}
             title="Reset Statewide Gujarat View"
-            className="p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300"
+            className="p-1 rounded-xs bg-bg hover:bg-surface border border-border text-text-muted hover:text-text"
           >
             <Maximize2 className="w-3.5 h-3.5" />
           </button>
         </div>
 
         {/* Fleet Representation Note */}
-        <div className="bg-[#0B1120] border border-slate-800 px-2.5 py-1 rounded text-[10px] font-mono text-slate-300">
-          <span className="text-amber-400 font-bold mr-1">Note:</span>
+        <div className="bg-bg border border-border px-2.5 py-1 rounded-xs text-[10px] text-text-muted">
+          <span className="text-accent font-bold mr-1">Note:</span>
           <span>405 Nodes represented (of 80,000+ fleet)</span>
         </div>
       </div>
 
       {/* Map Legend Overlay (Bottom Left) */}
-      <div className="absolute bottom-3 left-3 z-[400] bg-[#0F172A]/95 px-3 py-2 rounded border border-slate-800 text-[10px] font-mono text-slate-300 space-y-1 shadow">
-        <div className="text-[9px] uppercase tracking-wider text-slate-500 font-bold">
+      <div className="absolute bottom-3 left-3 z-[400] bg-surface/95 px-3 py-2 rounded-xs border border-border text-[10px] text-text-muted space-y-1">
+        <div className="text-[9px] tracking-tight text-text-muted font-bold">
           Representative Node Status
         </div>
         <div className="flex items-center space-x-3">
           <div className="flex items-center space-x-1">
-            <span className="w-2 h-2 rounded-full bg-emerald-500" />
+            <span className="w-2 h-2 rounded-full bg-accent" />
             <span>Online (~96%)</span>
           </div>
           <div className="flex items-center space-x-1">
-            <span className="w-2 h-2 rounded-full bg-amber-500" />
+            <span className="w-2 h-2 rounded-full bg-accent" />
             <span>Degraded (~3%)</span>
           </div>
           <div className="flex items-center space-x-1">
-            <span className="w-2 h-2 rounded-full bg-red-500" />
+            <span className="w-2 h-2 rounded-full bg-alert" />
             <span>Offline (~1%)</span>
           </div>
         </div>

@@ -1,19 +1,28 @@
 @import "tailwindcss";
 @import "leaflet/dist/leaflet.css";
 
+@theme {
+  --color-bg: #0F1B2D;
+  --color-surface: #17253D;
+  --color-border: #2A3B57;
+  --color-accent: #C9A227;
+  --color-alert: #C4554D;
+  --color-text: #E7EAF0;
+  --color-text-muted: #8B96AA;
+}
+
 :root {
   --font-serif: "Times New Roman", Times, "Liberation Serif", serif;
   font-family: "Times New Roman", Times, "Liberation Serif", serif;
 }
 
 /* =========================================================
-   UNIVERSAL TIMES NEW ROMAN ENFORCEMENT
+   UNIVERSAL TIMES NEW ROMAN ENFORCEMENT & BASE COLOR SYSTEM
    ========================================================= */
 *, *::before, *::after {
   font-family: "Times New Roman", Times, "Liberation Serif", serif !important;
 }
 
-/* Enforce Times New Roman on all HTML controls & semantic elements */
 h1, h2, h3, h4, h5, h6,
 p, span, div, a, label,
 button, input, select, textarea,
@@ -26,25 +35,14 @@ ul, ol, li, strong, b, em, small {
   font-family: "Times New Roman", Times, "Liberation Serif", serif !important;
 }
 
-/* =========================================================
-   LIGHT / WHITE THEME (DEFAULT)
-   Clean White background, Crisp White cards, Dark Navy Slate text
-   ========================================================= */
-:root, [data-theme="light"] {
-  color-scheme: light;
-}
-
-[data-theme="light"] body,
-html:not([data-theme="dark"]) body {
+body {
   margin: 0;
-  background-color: #F8FAFC !important; /* Off-white crisp background */
-  color: #0F172A !important;             /* Dark Navy Slate text */
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
   font-family: "Times New Roman", Times, "Liberation Serif", serif !important;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  letter-spacing: 0.012em;
-  line-height: 1.45;
 }
 
 /* --- LIGHT MODE COMPONENT OVERRIDES --- */

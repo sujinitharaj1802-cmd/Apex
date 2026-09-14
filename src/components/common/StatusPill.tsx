@@ -6,8 +6,8 @@ interface StatusPillProps {
 }
 
 export const StatusPill: React.FC<StatusPillProps> = ({ status, size = 'sm' }) => {
-  let style = 'bg-slate-800 text-slate-300 border-slate-700';
-  let dotColor = 'bg-slate-400';
+  let style = 'bg-surface text-text-muted border-border';
+  let dotColor = 'bg-text-muted';
 
   const normalized = status.toUpperCase();
 
@@ -15,15 +15,11 @@ export const StatusPill: React.FC<StatusPillProps> = ({ status, size = 'sm' }) =
     case 'CRITICAL':
     case 'OFFLINE':
     case 'NOT ONBOARDED':
-      style = 'bg-red-700 text-white font-bold border-red-500';
-      dotColor = 'bg-white';
+      style = 'bg-alert text-text font-bold border-alert';
+      dotColor = 'bg-text';
       break;
 
     case 'HIGH':
-      style = 'bg-orange-600 text-white font-bold border-orange-400';
-      dotColor = 'bg-white';
-      break;
-
     case 'MEDIUM':
     case 'DEGRADED':
     case 'PENDING':
@@ -31,28 +27,24 @@ export const StatusPill: React.FC<StatusPillProps> = ({ status, size = 'sm' }) =
     case 'AI ANALYSIS':
     case 'ASSIGNED':
     case 'IN-PROGRESS':
-      style = 'bg-amber-600 text-white font-bold border-amber-400';
-      dotColor = 'bg-white';
+      style = 'bg-surface text-accent font-bold border-accent';
+      dotColor = 'bg-accent';
       break;
 
     case 'ONLINE':
     case 'SIMULATED CONNECTED':
     case 'CONNECTED':
     case 'RESOLVED':
-      style = 'bg-emerald-700 text-white font-bold border-emerald-500';
-      dotColor = 'bg-white';
-      break;
-
     case 'DISPATCHED':
-      style = 'bg-blue-600 text-white font-bold border-blue-400';
-      dotColor = 'bg-white';
+      style = 'bg-surface text-text font-bold border-border';
+      dotColor = 'bg-text';
       break;
 
     case 'DETECTED':
     case 'LOW':
     default:
-      style = 'bg-slate-700 text-white font-bold border-slate-500';
-      dotColor = 'bg-slate-200';
+      style = 'bg-bg text-text-muted font-medium border-border';
+      dotColor = 'bg-text-muted';
       break;
   }
 
@@ -60,7 +52,7 @@ export const StatusPill: React.FC<StatusPillProps> = ({ status, size = 'sm' }) =
 
   return (
     <span
-      className={`inline-flex items-center space-x-1.5 rounded border font-mono font-medium ${sizeClass} ${style}`}
+      className={`inline-flex items-center space-x-1.5 rounded-xs border font-medium ${sizeClass} ${style}`}
     >
       <span className={`w-1.5 h-1.5 rounded-full ${dotColor}`} />
       <span>{status}</span>
