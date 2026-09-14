@@ -68,66 +68,66 @@ export const GisTopologyPage: React.FC = () => {
   return (
     <div className="p-4 max-w-[1750px] mx-auto space-y-4 font-sans">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
         <div>
           <div className="flex items-center space-x-2">
             <MapPin className="w-5 h-5 text-blue-400" />
-            <h1 className="text-lg font-bold text-white">GIS Infrastructure & Network Topology Layer</h1>
+            <h1 className="text-lg font-bold text-text">GIS Infrastructure & Network Topology Layer</h1>
           </div>
-          <p className="text-xs text-slate-400 font-mono">
+          <p className="text-xs text-text-muted font-mono">
             Spatial indexing foundation mapping Gujarat's representative edge nodes into municipal and highway clusters
           </p>
         </div>
 
-        <div className="text-xs font-mono bg-[#0F172A] border border-slate-800 px-3 py-1.5 rounded text-slate-300">
+        <div className="text-xs font-mono bg-surface border border-border px-3 py-1.5 rounded text-text-muted">
           Spatial Resolution: <strong className="text-blue-400">Sub-meter Centroid Tagging</strong>
         </div>
       </div>
 
       {/* 4 Backbone Pillars Explained */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 text-xs font-mono">
-        <div className="bg-[#0F172A] border border-slate-800 rounded p-3 space-y-1">
+        <div className="bg-surface border border-border rounded p-3 space-y-1">
           <div className="text-[10px] text-slate-500 uppercase font-bold">Pillar 1</div>
-          <div className="text-white font-bold">Camera Registry</div>
-          <p className="text-[11px] text-slate-400 font-sans">
+          <div className="text-text font-bold">Camera Registry</div>
+          <p className="text-[11px] text-text-muted font-sans">
             Centralized metadata store containing UID, vendor profile, IP scheme, and install date.
           </p>
         </div>
 
-        <div className="bg-[#0F172A] border border-slate-800 rounded p-3 space-y-1">
+        <div className="bg-surface border border-border rounded p-3 space-y-1">
           <div className="text-[10px] text-slate-500 uppercase font-bold">Pillar 2</div>
           <div className="text-blue-400 font-bold">GIS Layer</div>
-          <p className="text-[11px] text-slate-400 font-sans">
+          <p className="text-[11px] text-text-muted font-sans">
             Geospatial indexing providing polygonal polygon boundaries and corridor buffers.
           </p>
         </div>
 
-        <div className="bg-[#0F172A] border border-slate-800 rounded p-3 space-y-1">
+        <div className="bg-surface border border-border rounded p-3 space-y-1">
           <div className="text-[10px] text-slate-500 uppercase font-bold">Pillar 3</div>
           <div className="text-purple-400 font-bold">Network Topology</div>
-          <p className="text-[11px] text-slate-400 font-sans">
+          <p className="text-[11px] text-text-muted font-sans">
             Mesh and star telemetry mapping across municipal WANs, BSNL fiber, and cellular edge links.
           </p>
         </div>
 
-        <div className="bg-[#0F172A] border border-slate-800 rounded p-3 space-y-1">
+        <div className="bg-surface border border-border rounded p-3 space-y-1">
           <div className="text-[10px] text-slate-500 uppercase font-bold">Pillar 4</div>
           <div className="text-emerald-400 font-bold">Health Monitoring</div>
-          <p className="text-[11px] text-slate-400 font-sans">
+          <p className="text-[11px] text-text-muted font-sans">
             Automated heartbeat pings checking packet loss, lens occlusion, and power drops.
           </p>
         </div>
       </div>
 
       {/* District Selector & Metric Breakdown Strip */}
-      <div className="bg-[#0F172A] border border-slate-800 rounded-lg p-3.5 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+      <div className="bg-surface border border-border rounded-lg p-3.5 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
         <div className="flex items-center space-x-2">
-          <span className="text-slate-400 uppercase text-[10px] font-bold">Selected District:</span>
+          <span className="text-text-muted uppercase text-[10px] font-bold">Selected District:</span>
           <select
             value={selectedDistrictName}
             onChange={(e) => setSelectedDistrictName(e.target.value)}
             aria-label="Select district for GIS breakdown"
-            className="bg-[#0B1120] border border-slate-700 text-white py-1.5 px-3 rounded focus:outline-none focus:border-blue-500"
+            className="bg-bg border border-border text-text py-1.5 px-3 rounded focus:outline-none focus:border-blue-500"
           >
             {DISTRICT_CENTROIDS.map((c) => (
               <option key={c.district} value={c.district}>
@@ -141,7 +141,7 @@ export const GisTopologyPage: React.FC = () => {
         <div className="flex flex-wrap items-center gap-4">
           <div>
             <span className="text-slate-500 text-[10px] block">TOTAL REPRESENTATIVE:</span>
-            <strong className="text-white">{districtStats.total} Nodes</strong>
+            <strong className="text-text">{districtStats.total} Nodes</strong>
           </div>
           <div>
             <span className="text-slate-500 text-[10px] block">ONLINE:</span>
@@ -165,9 +165,9 @@ export const GisTopologyPage: React.FC = () => {
       {/* Main Grid: Spatial Query Results (5 cols) + Map (7 cols) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Left: Spatial Radius Query */}
-        <div className="lg:col-span-5 bg-[#0F172A] border border-slate-800 rounded-lg p-4 space-y-3 flex flex-col h-[520px]">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-            <div className="flex items-center space-x-2 text-xs font-mono font-bold text-white uppercase">
+        <div className="lg:col-span-5 bg-surface border border-border rounded-lg p-4 space-y-3 flex flex-col h-[520px]">
+          <div className="flex items-center justify-between border-b border-border pb-2">
+            <div className="flex items-center space-x-2 text-xs font-mono font-bold text-text uppercase">
               <Search className="w-4 h-4 text-blue-400" />
               <span>Simulated Spatial Query</span>
             </div>
@@ -177,8 +177,8 @@ export const GisTopologyPage: React.FC = () => {
           </div>
 
           {/* Radius Slider */}
-          <div className="space-y-1 bg-[#0B1120] p-2.5 rounded border border-slate-800 text-xs font-mono">
-            <div className="flex justify-between text-[11px] text-slate-300">
+          <div className="space-y-1 bg-bg p-2.5 rounded border border-border text-xs font-mono">
+            <div className="flex justify-between text-[11px] text-text-muted">
               <span>Spatial Radius: <strong>{searchRadiusKm} km</strong> from {selectedDistrictName} centroid</span>
             </div>
             <input
@@ -202,16 +202,16 @@ export const GisTopologyPage: React.FC = () => {
               <div
                 key={cam.id}
                 onClick={() => handleInspectCamera(cam)}
-                className="p-2.5 rounded bg-[#0B1120] border border-slate-800 hover:border-slate-700 hover:bg-slate-850 cursor-pointer transition-colors text-xs font-mono"
+                className="p-2.5 rounded bg-bg border border-border hover:border-border hover:bg-surface cursor-pointer transition-colors text-xs font-mono"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-blue-400">{cam.id}</span>
                   <span className="text-emerald-400 font-bold">{cam.distanceKm} km away</span>
                 </div>
-                <div className="text-slate-200 text-xs font-sans font-semibold mt-0.5">
+                <div className="text-text text-xs font-sans font-semibold mt-0.5">
                   {cam.name}
                 </div>
-                <div className="flex items-center justify-between text-[10px] text-slate-400 mt-1">
+                <div className="flex items-center justify-between text-[10px] text-text-muted mt-1">
                   <span>Vendor: {cam.vendor}</span>
                   <span>Health: {cam.healthScore}/100</span>
                   <span className={cam.status === 'online' ? 'text-emerald-400' : 'text-amber-400'}>

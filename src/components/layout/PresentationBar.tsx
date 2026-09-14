@@ -37,21 +37,21 @@ export const PresentationBar: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-[#0F172A] border border-blue-500/80 px-4 py-2 rounded-lg shadow-2xl flex items-center space-x-3 text-xs font-mono text-slate-200">
+    <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-surface border border-blue-500/80 px-4 py-2 rounded-lg shadow-2xl flex items-center space-x-3 text-xs font-mono text-text">
       <div className="flex items-center space-x-2">
         <MonitorPlay className="w-4 h-4 text-blue-400" />
-        <span className="font-bold text-white uppercase text-[11px]">
+        <span className="font-bold text-text uppercase text-[11px]">
           Presentation Tour: {activeSlideTitle} ({activeSlideNumber}/6)
         </span>
       </div>
 
-      <div className="h-4 w-px bg-slate-700" />
+      <div className="h-4 w-px bg-border" />
 
       {/* Manual Step Controls */}
       <div className="flex items-center space-x-1.5">
         <button
           onClick={goPrev}
-          className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-white font-bold flex items-center space-x-1"
+          className="px-2.5 py-1 rounded bg-surface hover:bg-border text-text font-bold flex items-center space-x-1"
           title="Previous slide"
         >
           <SkipBack className="w-3.5 h-3.5" />
@@ -59,7 +59,7 @@ export const PresentationBar: React.FC = () => {
         </button>
         <button
           onClick={goNext}
-          className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-white font-bold flex items-center space-x-1"
+          className="px-2.5 py-1 rounded bg-surface hover:bg-border text-text font-bold flex items-center space-x-1"
           title="Next slide"
         >
           <span className="text-[11px]">Next</span>
@@ -67,12 +67,12 @@ export const PresentationBar: React.FC = () => {
         </button>
       </div>
 
-      <div className="h-4 w-px bg-slate-700" />
+      <div className="h-4 w-px bg-border" />
 
       {/* Exit Button */}
       <button
         onClick={togglePresentationMode}
-        className="flex items-center space-x-1 px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-white font-bold text-[11px]"
+        className="flex items-center space-x-1 px-2.5 py-1 rounded bg-surface hover:bg-border text-text font-bold text-[11px]"
       >
         <X className="w-3.5 h-3.5" />
         <span>Exit Tour</span>

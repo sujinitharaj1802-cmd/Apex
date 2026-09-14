@@ -63,7 +63,7 @@ export const GujaratMap: React.FC<GujaratMapProps> = ({
 
     L.control
       .attribution({
-        prefix: '<span class="text-[11px] text-slate-800 font-bold">Apex GIS • Gujarat Police Concept</span>',
+        prefix: '<span class="text-[11px] text-text-muted font-bold">Apex GIS • Gujarat Police Concept</span>',
         position: 'bottomright',
       })
       .addTo(map);
@@ -114,17 +114,17 @@ export const GujaratMap: React.FC<GujaratMapProps> = ({
       const marker = L.circleMarker([cam.lat, cam.lng], {
         radius: cam.currentAlert ? 7 : cam.status === 'offline' ? 6 : 5,
         fillColor: color,
-        color: cam.currentAlert ? '#FFFFFF' : '#0F172A',
+        color: cam.currentAlert ? 'var(--color-text)' : 'var(--color-surface)',
         weight: cam.currentAlert ? 2 : 1.5,
         opacity: 1,
         fillOpacity: 0.85,
       });
 
       const popupHtml = `
-        <div class="p-2 space-y-1.5 min-w-[220px] text-xs text-white">
-          <div class="flex items-center justify-between border-b border-slate-700 pb-1">
-            <span class="font-bold text-white text-sm">${cam.id}</span>
-            <span class="text-[10px] px-1.5 py-0.5 rounded uppercase font-bold text-white ${
+        <div class="p-2 space-y-1.5 min-w-[220px] text-xs text-text">
+          <div class="flex items-center justify-between border-b border-border pb-1">
+            <span class="font-bold text-text text-sm">${cam.id}</span>
+            <span class="text-[10px] px-1.5 py-0.5 rounded uppercase font-bold text-text ${
               cam.status === 'online'
                 ? 'bg-emerald-950 border border-emerald-700'
                 : cam.status === 'degraded'
@@ -133,29 +133,29 @@ export const GujaratMap: React.FC<GujaratMapProps> = ({
             }">${cam.status}</span>
           </div>
 
-          <div class="font-bold text-white text-sm mt-0.5">${cam.locationName}</div>
+          <div class="font-bold text-text text-sm mt-0.5">${cam.locationName}</div>
 
-          <div class="grid grid-cols-2 gap-1 text-[11px] text-white mt-1">
-            <div><span class="text-slate-200 block text-[10px] uppercase font-bold">District</span><span class="text-white font-semibold">${cam.district}</span></div>
-            <div><span class="text-slate-200 block text-[10px] uppercase font-bold">Dept</span><span class="text-white font-semibold">${cam.dept}</span></div>
-            <div><span class="text-slate-200 block text-[10px] uppercase font-bold">Vendor</span><span class="text-white font-semibold">${cam.vendor}</span></div>
-            <div><span class="text-slate-200 block text-[10px] uppercase font-bold">Health</span><span class="text-emerald-400 font-bold">${cam.healthScore}/100</span></div>
+          <div class="grid grid-cols-2 gap-1 text-[11px] text-text mt-1">
+            <div><span class="text-text-muted block text-[10px] uppercase font-bold">District</span><span class="text-text font-semibold">${cam.district}</span></div>
+            <div><span class="text-text-muted block text-[10px] uppercase font-bold">Dept</span><span class="text-text font-semibold">${cam.dept}</span></div>
+            <div><span class="text-text-muted block text-[10px] uppercase font-bold">Vendor</span><span class="text-text font-semibold">${cam.vendor}</span></div>
+            <div><span class="text-text-muted block text-[10px] uppercase font-bold">Health</span><span class="text-emerald-400 font-bold">${cam.healthScore}/100</span></div>
           </div>
 
-          <div class="text-[11px] text-slate-200 pt-1 border-t border-slate-800">
-            Heartbeat: <strong class="text-white">${cam.lastHeartbeat}</strong>
+          <div class="text-[11px] text-text-muted pt-1 border-t border-border">
+            Heartbeat: <strong class="text-text">${cam.lastHeartbeat}</strong>
           </div>
 
           ${
             cam.currentAlert
-              ? `<div class="bg-red-950 border border-red-700 p-1.5 rounded text-[11px] text-white font-bold flex items-center justify-between">
-                  <span>Alert: <strong class="text-white underline">${cam.currentAlert}</strong></span>
-                  <button id="alert-jump-btn-${cam.id}" class="underline text-white font-bold hover:text-amber-300">View Alert</button>
+              ? `<div class="bg-red-950 border border-red-700 p-1.5 rounded text-[11px] text-text font-bold flex items-center justify-between">
+                  <span>Alert: <strong class="text-text underline">${cam.currentAlert}</strong></span>
+                  <button id="alert-jump-btn-${cam.id}" class="underline text-text font-bold hover:text-amber-300">View Alert</button>
                 </div>`
               : ''
           }
 
-          <button id="inspect-btn-${cam.id}" class="w-full mt-2 py-1.5 px-2 bg-blue-600 hover:bg-blue-500 text-white rounded text-xs font-bold transition-colors text-center block">
+          <button id="inspect-btn-${cam.id}" class="w-full mt-2 py-1.5 px-2 bg-blue-600 hover:bg-blue-500 text-text rounded text-xs font-bold transition-colors text-center block">
             Inspect Sensor Telemetry
           </button>
         </div>

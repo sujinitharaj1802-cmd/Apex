@@ -119,25 +119,25 @@ export const CameraRegistryPage: React.FC = () => {
   return (
     <div className="p-4 max-w-[1750px] mx-auto space-y-4 font-sans">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
         <div>
           <div className="flex items-center space-x-2">
             <CameraIcon className="w-5 h-5 text-blue-400" />
-            <h1 className="text-lg font-bold text-white">Camera Registry & Asset Management</h1>
+            <h1 className="text-lg font-bold text-text">Camera Registry & Asset Management</h1>
           </div>
-          <p className="text-xs text-slate-400 font-mono">
+          <p className="text-xs text-text-muted font-mono">
             Comprehensive catalog of 405 representative edge sensors across 26 state departments in Gujarat
           </p>
         </div>
 
-        <div className="text-xs font-mono bg-[#0F172A] border border-slate-800 px-3 py-1.5 rounded text-slate-300">
+        <div className="text-xs font-mono bg-surface border border-border px-3 py-1.5 rounded text-text-muted">
           Representative Demo Catalog: <strong className="text-blue-400">{filteredCameras.length}</strong> of{' '}
-          <strong className="text-white">{cameras.length}</strong> sensors
+          <strong className="text-text">{cameras.length}</strong> sensors
         </div>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-[#0F172A] border border-slate-800 rounded-lg p-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2.5 text-xs font-mono">
+      <div className="bg-surface border border-border rounded-lg p-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2.5 text-xs font-mono">
         {/* Search */}
         <div className="lg:col-span-2 relative">
           <Search className="w-4 h-4 text-slate-500 absolute left-2.5 top-1/2 -translate-y-1/2" />
@@ -149,7 +149,7 @@ export const CameraRegistryPage: React.FC = () => {
               setSearchTerm(e.target.value);
               setCurrentPage(1);
             }}
-            className="w-full pl-8 pr-3 py-1.5 bg-[#0B1120] border border-slate-700 rounded text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 text-xs"
+            className="w-full pl-8 pr-3 py-1.5 bg-bg border border-border rounded text-text placeholder-slate-500 focus:outline-none focus:border-blue-500 text-xs"
           />
         </div>
 
@@ -162,7 +162,7 @@ export const CameraRegistryPage: React.FC = () => {
               setCurrentPage(1);
             }}
             aria-label="Filter by district"
-            className="w-full py-1.5 px-2 bg-[#0B1120] border border-slate-700 rounded text-slate-300 focus:outline-none focus:border-blue-500 text-xs"
+            className="w-full py-1.5 px-2 bg-bg border border-border rounded text-text-muted focus:outline-none focus:border-blue-500 text-xs"
           >
             <option value="all">All Districts</option>
             {districts.map((d) => (
@@ -182,7 +182,7 @@ export const CameraRegistryPage: React.FC = () => {
               setCurrentPage(1);
             }}
             aria-label="Filter by department"
-            className="w-full py-1.5 px-2 bg-[#0B1120] border border-slate-700 rounded text-slate-300 focus:outline-none focus:border-blue-500 text-xs"
+            className="w-full py-1.5 px-2 bg-bg border border-border rounded text-text-muted focus:outline-none focus:border-blue-500 text-xs"
           >
             <option value="all">All Departments</option>
             {depts.map((dp) => (
@@ -202,7 +202,7 @@ export const CameraRegistryPage: React.FC = () => {
               setCurrentPage(1);
             }}
             aria-label="Filter by vendor"
-            className="w-full py-1.5 px-2 bg-[#0B1120] border border-slate-700 rounded text-slate-300 focus:outline-none focus:border-blue-500 text-xs"
+            className="w-full py-1.5 px-2 bg-bg border border-border rounded text-text-muted focus:outline-none focus:border-blue-500 text-xs"
           >
             <option value="all">All Vendors</option>
             {vendors.map((v) => (
@@ -222,7 +222,7 @@ export const CameraRegistryPage: React.FC = () => {
               setCurrentPage(1);
             }}
             aria-label="Filter by status"
-            className="w-full py-1.5 px-2 bg-[#0B1120] border border-slate-700 rounded text-slate-300 focus:outline-none focus:border-blue-500 text-xs"
+            className="w-full py-1.5 px-2 bg-bg border border-border rounded text-text-muted focus:outline-none focus:border-blue-500 text-xs"
           >
             <option value="all">All Statuses</option>
             <option value="online">Online</option>
@@ -233,10 +233,10 @@ export const CameraRegistryPage: React.FC = () => {
       </div>
 
       {/* Main Asset Table */}
-      <div className="bg-[#0F172A] border border-slate-800 rounded-lg overflow-hidden shadow-sm">
+      <div className="bg-surface border border-border rounded-lg overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs font-sans">
-            <thead className="bg-[#0B1120] text-slate-400 font-mono uppercase text-[10px] tracking-wider border-b border-slate-800">
+            <thead className="bg-bg text-text-muted font-mono uppercase text-[10px] tracking-wider border-b border-border">
               <tr>
                 <th className="p-3">Camera ID</th>
                 <th className="p-3">Location & Landmark</th>
@@ -256,7 +256,7 @@ export const CameraRegistryPage: React.FC = () => {
                   <td colSpan={10} className="text-center py-12">
                     <div className="flex flex-col items-center justify-center space-y-2 text-slate-500">
                       <CameraIcon className="w-8 h-8 text-slate-600" />
-                      <span className="text-sm font-semibold text-slate-300">No cameras matching current filter criteria</span>
+                      <span className="text-sm font-semibold text-text-muted">No cameras matching current filter criteria</span>
                       <p className="text-xs font-mono text-slate-500 max-w-md">
                         Try modifying search query, adjusting district, vendor OEM, or resetting status filters.
                       </p>
@@ -269,7 +269,7 @@ export const CameraRegistryPage: React.FC = () => {
                           setDeptFilter('all');
                           setCurrentPage(1);
                         }}
-                        className="mt-2 px-3 py-1 bg-slate-800 hover:bg-slate-700 text-blue-400 font-mono text-xs rounded border border-slate-700 transition-colors"
+                        className="mt-2 px-3 py-1 bg-slate-800 hover:bg-slate-700 text-blue-400 font-mono text-xs rounded border border-border transition-colors"
                       >
                         Reset All Filters
                       </button>
@@ -281,29 +281,29 @@ export const CameraRegistryPage: React.FC = () => {
                   <tr
                     key={cam.id}
                     onClick={() => setSelectedDrawerCam(cam)}
-                    className="hover:bg-slate-850 cursor-pointer transition-colors"
+                    className="hover:bg-surface cursor-pointer transition-colors"
                   >
                     <td className="p-3 font-bold text-blue-400">{cam.id}</td>
                     <td className="p-3 font-sans">
-                      <div className="font-semibold text-white">{cam.name}</div>
+                      <div className="font-semibold text-text">{cam.name}</div>
                       <div className="text-[10px] text-slate-500 font-mono">{cam.ipAddress}</div>
                     </td>
-                    <td className="p-3 text-slate-300">{cam.district}</td>
-                    <td className="p-3 font-sans text-slate-400">{cam.dept}</td>
-                    <td className="p-3 text-slate-400">{cam.vendor}</td>
-                    <td className="p-3 text-slate-400">{cam.resolution.split(' ')[0]}</td>
+                    <td className="p-3 text-text-muted">{cam.district}</td>
+                    <td className="p-3 font-sans text-text-muted">{cam.dept}</td>
+                    <td className="p-3 text-text-muted">{cam.vendor}</td>
+                    <td className="p-3 text-text-muted">{cam.resolution.split(' ')[0]}</td>
                     <td className="p-3">
                       <StatusPill status={cam.status} />
                     </td>
                     <td className="p-3 font-bold text-emerald-400">{cam.healthScore}/100</td>
-                    <td className="p-3 text-slate-400">{cam.lastHeartbeat}</td>
+                    <td className="p-3 text-text-muted">{cam.lastHeartbeat}</td>
                     <td className="p-3 text-right">
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
                           setSelectedDrawerCam(cam);
                         }}
-                        className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 text-[10px] transition-colors"
+                        className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-text text-[10px] transition-colors"
                       >
                         Inspect
                       </button>
@@ -316,24 +316,24 @@ export const CameraRegistryPage: React.FC = () => {
         </div>
 
         {/* Pagination Bar */}
-        <div className="p-3 bg-[#0B1120] border-t border-slate-800 flex items-center justify-between text-xs font-mono">
-          <div className="text-slate-400">
-            Page <strong className="text-white">{currentPage}</strong> of{' '}
-            <strong className="text-white">{totalPages}</strong>
+        <div className="p-3 bg-bg border-t border-border flex items-center justify-between text-xs font-mono">
+          <div className="text-text-muted">
+            Page <strong className="text-text">{currentPage}</strong> of{' '}
+            <strong className="text-text">{totalPages}</strong>
           </div>
 
           <div className="flex items-center space-x-1.5">
             <button
               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
               disabled={currentPage === 1}
-              className="p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 disabled:opacity-40"
+              className="p-1 rounded bg-slate-800 hover:bg-slate-700 text-text-muted disabled:opacity-40"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
-              className="p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 disabled:opacity-40"
+              className="p-1 rounded bg-slate-800 hover:bg-slate-700 text-text-muted disabled:opacity-40"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -344,16 +344,16 @@ export const CameraRegistryPage: React.FC = () => {
       {/* Slide-over Detail Drawer */}
       {selectedDrawerCam && (
         <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex justify-end">
-          <div className="bg-[#0F172A] border-l border-slate-700 w-full max-w-md h-full overflow-y-auto p-5 space-y-4 shadow-2xl flex flex-col justify-between">
+          <div className="bg-surface border-l border-border w-full max-w-md h-full overflow-y-auto p-5 space-y-4 shadow-2xl flex flex-col justify-between">
             <div className="space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div className="flex items-center justify-between border-b border-border pb-3">
                 <div>
                   <span className="font-mono text-xs font-bold text-blue-400">{selectedDrawerCam.id}</span>
-                  <h2 className="text-sm font-bold text-white">{selectedDrawerCam.name}</h2>
+                  <h2 className="text-sm font-bold text-text">{selectedDrawerCam.name}</h2>
                 </div>
                 <button
                   onClick={() => setSelectedDrawerCam(null)}
-                  className="p-1 rounded hover:bg-slate-800 text-slate-400 hover:text-white"
+                  className="p-1 rounded hover:bg-slate-800 text-text-muted hover:text-text"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -369,13 +369,13 @@ export const CameraRegistryPage: React.FC = () => {
               />
 
               {/* Technical Details */}
-              <div className="bg-[#0B1120] border border-slate-800 rounded p-3.5 space-y-2.5 font-mono text-xs">
-                <div className="text-[10px] text-slate-500 uppercase font-semibold border-b border-slate-800 pb-1 flex items-center justify-between">
+              <div className="bg-bg border border-border rounded p-3.5 space-y-2.5 font-mono text-xs">
+                <div className="text-[10px] text-slate-500 uppercase font-semibold border-b border-border pb-1 flex items-center justify-between">
                   <span>Hardware & Health Telemetry</span>
                   <StatusPill status={selectedDrawerCam.status} />
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 text-slate-300">
+                <div className="grid grid-cols-2 gap-2 text-text-muted">
                   <div><span className="text-slate-500 text-[10px] block">DISTRICT</span><strong>{selectedDrawerCam.district}</strong></div>
                   <div><span className="text-slate-500 text-[10px] block">DEPARTMENT</span><strong>{selectedDrawerCam.dept}</strong></div>
                   <div><span className="text-slate-500 text-[10px] block">VENDOR OEM</span><strong>{selectedDrawerCam.vendor}</strong></div>
@@ -386,8 +386,8 @@ export const CameraRegistryPage: React.FC = () => {
                   <div><span className="text-slate-500 text-[10px] block">HEALTH SCORE</span><strong className="text-blue-400">{selectedDrawerCam.healthScore}/100</strong></div>
                 </div>
 
-                <div className="pt-2 border-t border-slate-800 text-[11px] text-slate-400">
-                  Last Heartbeat Ping: <strong className="text-slate-200">{selectedDrawerCam.lastHeartbeat}</strong>
+                <div className="pt-2 border-t border-border text-[11px] text-text-muted">
+                  Last Heartbeat Ping: <strong className="text-text">{selectedDrawerCam.lastHeartbeat}</strong>
                 </div>
 
                 {selectedDrawerCam.failureReason && (
@@ -399,20 +399,20 @@ export const CameraRegistryPage: React.FC = () => {
             </div>
 
             {/* Actions */}
-            <div className="space-y-2.5 pt-3 border-t border-slate-800">
+            <div className="space-y-2.5 pt-3 border-t border-border">
               <button
                 onClick={() => handlePingDiagnostic(selectedDrawerCam)}
                 disabled={isPinging}
-                className="w-full py-2 px-3 bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-bold rounded flex items-center justify-center space-x-1.5 transition-colors disabled:opacity-50 shadow"
+                className="w-full py-2 px-3 bg-blue-600 hover:bg-blue-500 text-text font-mono text-xs font-bold rounded flex items-center justify-center space-x-1.5 transition-colors disabled:opacity-50 shadow"
               >
                 <Radio className={`w-3.5 h-3.5 ${isPinging ? 'animate-pulse text-yellow-300' : ''}`} />
                 <span>{isPinging ? 'Pinging Sensor via ICMP & ONVIF...' : 'Run Live Diagnostic Ping'}</span>
               </button>
 
               {pingResult && (
-                <div className="bg-[#080D1A] border border-slate-700 rounded p-3 font-mono text-[11px] space-y-1.5">
-                  <div className="flex items-center justify-between text-[10px] border-b border-slate-800 pb-1">
-                    <span className="text-slate-400 font-bold uppercase">Diagnostic Telemetry</span>
+                <div className="bg-bg border border-border rounded p-3 font-mono text-[11px] space-y-1.5">
+                  <div className="flex items-center justify-between text-[10px] border-b border-border pb-1">
+                    <span className="text-text-muted font-bold uppercase">Diagnostic Telemetry</span>
                     <span
                       className={`px-1.5 py-0.2 rounded text-[9px] font-bold ${
                         pingResult.success ? 'bg-emerald-950 text-emerald-300 border border-emerald-700' : 'bg-red-950 text-red-300 border border-red-700'
@@ -421,14 +421,14 @@ export const CameraRegistryPage: React.FC = () => {
                       {pingResult.status}
                     </span>
                   </div>
-                  <div className="text-slate-400">
-                    RTT: <strong className="text-white">{pingResult.rtt}</strong> • Packet Loss:{' '}
+                  <div className="text-text-muted">
+                    RTT: <strong className="text-text">{pingResult.rtt}</strong> • Packet Loss:{' '}
                     <strong className={pingResult.loss === '0%' ? 'text-emerald-400' : 'text-red-400'}>{pingResult.loss}</strong>
                   </div>
-                  <div className="text-slate-400">
-                    RTSP Stream: <strong className="text-slate-200">{pingResult.rtsp}</strong>
+                  <div className="text-text-muted">
+                    RTSP Stream: <strong className="text-text">{pingResult.rtsp}</strong>
                   </div>
-                  <div className="text-slate-400">
+                  <div className="text-text-muted">
                     Edge Engine: <strong className="text-blue-300">{pingResult.edgeAi}</strong>
                   </div>
                 </div>
@@ -436,7 +436,7 @@ export const CameraRegistryPage: React.FC = () => {
 
               <button
                 onClick={() => handleIssueWorkOrder(selectedDrawerCam)}
-                className="w-full py-2 px-3 bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold rounded flex items-center justify-center space-x-1.5 transition-colors"
+                className="w-full py-2 px-3 bg-amber-600 hover:bg-amber-500 text-text text-xs font-bold rounded flex items-center justify-center space-x-1.5 transition-colors"
               >
                 <Wrench className="w-3.5 h-3.5" />
                 <span>Create Simulated Work Order</span>
@@ -447,7 +447,7 @@ export const CameraRegistryPage: React.FC = () => {
                   setSelectedDrawerCam(null);
                   setPingResult(null);
                 }}
-                className="w-full py-2 px-3 bg-slate-800 hover:bg-slate-750 text-slate-300 font-mono text-xs rounded transition-colors"
+                className="w-full py-2 px-3 bg-slate-800 hover:bg-surface text-text-muted font-mono text-xs rounded transition-colors"
               >
                 Close Drawer
               </button>

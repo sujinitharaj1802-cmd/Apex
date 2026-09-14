@@ -26,13 +26,13 @@ export const AuditTrailPage: React.FC = () => {
   return (
     <div className="p-4 max-w-[1750px] mx-auto space-y-4 font-sans">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
         <div>
           <div className="flex items-center space-x-2">
             <FileCheck2 className="w-5 h-5 text-emerald-400" />
-            <h1 className="text-lg font-bold text-white">FORENSIC AUDIT TRAIL</h1>
+            <h1 className="text-lg font-bold text-text">FORENSIC AUDIT TRAIL</h1>
           </div>
-          <p className="text-xs text-slate-400 font-mono">
+          <p className="text-xs text-text-muted font-mono">
             Tamper-evident record of simulated platform activity
           </p>
         </div>
@@ -50,7 +50,7 @@ export const AuditTrailPage: React.FC = () => {
 
           <button
             onClick={repairLedger}
-            className="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 font-mono text-xs flex items-center space-x-1.5 transition-colors"
+            className="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-text-muted font-mono text-xs flex items-center space-x-1.5 transition-colors"
             title="Reset to pristine verified chain"
           >
             <RefreshCw className="w-3.5 h-3.5" />
@@ -60,7 +60,7 @@ export const AuditTrailPage: React.FC = () => {
           <button
             onClick={runLedgerVerification}
             disabled={isVerifyingLedger}
-            className="px-4 py-1.5 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center space-x-1.5 transition-colors shadow disabled:opacity-50"
+            className="px-4 py-1.5 rounded bg-emerald-600 hover:bg-emerald-500 text-text font-bold text-xs flex items-center space-x-1.5 transition-colors shadow disabled:opacity-50"
           >
             {isVerifyingLedger ? (
               <>
@@ -107,38 +107,38 @@ export const AuditTrailPage: React.FC = () => {
           </div>
 
           <div className="text-right hidden md:block text-[11px]">
-            <div className="text-slate-400 uppercase text-[9px]">Standard</div>
+            <div className="text-text-muted uppercase text-[9px]">Standard</div>
             <strong>FIPS 180-4 SHA-256</strong>
           </div>
         </div>
       )}
 
       {/* Architectural Context & Hyperledger Clarification */}
-      <div className="bg-[#0F172A] border border-slate-800 rounded-lg p-3.5 flex items-start space-x-3 text-xs">
+      <div className="bg-surface border border-border rounded-lg p-3.5 flex items-start space-x-3 text-xs">
         <Info className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
-        <div className="text-slate-300 font-sans leading-relaxed space-y-1">
+        <div className="text-text-muted font-sans leading-relaxed space-y-1">
           <div>
-            <strong className="text-white">Simulated Blockchain Architecture:</strong> In the Apex proposal, Hyperledger Fabric is proposed as a future enterprise distributed ledger for evidentiary chain-of-custody across courts and police commissionerates.
+            <strong className="text-text">Simulated Blockchain Architecture:</strong> In the Apex proposal, Hyperledger Fabric is proposed as a future enterprise distributed ledger for evidentiary chain-of-custody across courts and police commissionerates.
           </div>
-          <div className="text-slate-400 text-[11px]">
+          <div className="text-text-muted text-[11px]">
             In this prototype, the tamper-evidence concept is demonstrably proven using a live, browser-native SHA-256 cryptographic hash chain over synthetic operational records.
           </div>
         </div>
       </div>
 
       {/* Forensic Audit Table */}
-      <div className="bg-[#0F172A] border border-slate-800 rounded-lg overflow-hidden shadow-sm">
-        <div className="p-3 bg-[#0B1120] border-b border-slate-800 flex items-center justify-between text-xs font-mono">
-          <div className="flex items-center space-x-2 text-white font-bold uppercase">
+      <div className="bg-surface border border-border rounded-lg overflow-hidden shadow-sm">
+        <div className="p-3 bg-bg border-b border-border flex items-center justify-between text-xs font-mono">
+          <div className="flex items-center space-x-2 text-text font-bold uppercase">
             <Hash className="w-4 h-4 text-blue-400" />
             <span>Immutable Hash-Chain Ledger ({ledger.length} Records)</span>
           </div>
-          <span className="text-[10px] text-slate-400">Underlying events are simulated</span>
+          <span className="text-[10px] text-text-muted">Underlying events are simulated</span>
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs font-mono">
-            <thead className="bg-[#0B1120] text-slate-400 uppercase text-[10px] tracking-wider border-b border-slate-800">
+            <thead className="bg-bg text-text-muted uppercase text-[10px] tracking-wider border-b border-border">
               <tr>
                 <th className="p-3">Block #</th>
                 <th className="p-3">Timestamp (IST)</th>
@@ -163,13 +163,13 @@ export const AuditTrailPage: React.FC = () => {
                     className={`transition-colors ${
                       isTampered
                         ? 'bg-red-950/50 border-l-4 border-l-red-500 text-red-200'
-                        : 'hover:bg-slate-850'
+                        : 'hover:bg-surface'
                     }`}
                   >
                     <td className="p-3 font-bold text-blue-400">
                       #{String(block.index).padStart(3, '0')}
                     </td>
-                    <td className="p-3 text-slate-400 whitespace-nowrap">{block.timestamp}</td>
+                    <td className="p-3 text-text-muted whitespace-nowrap">{block.timestamp}</td>
                     <td className="p-3">
                       <span
                         className={`px-2 py-0.5 rounded text-[10px] font-bold ${
@@ -179,20 +179,20 @@ export const AuditTrailPage: React.FC = () => {
                             ? 'bg-emerald-950 text-emerald-300 border border-emerald-800'
                             : block.action === 'WORK_ORDER_ISSUED'
                             ? 'bg-amber-950 text-amber-300 border border-amber-800'
-                            : 'bg-slate-800 text-slate-300'
+                            : 'bg-slate-800 text-text-muted'
                         }`}
                       >
                         {block.action}
                       </span>
                     </td>
                     <td className="p-3">
-                      <div className="text-white font-semibold">{block.actorRole}</div>
-                      <div className="text-[10px] text-slate-400">{block.actorId}</div>
+                      <div className="text-text font-semibold">{block.actorRole}</div>
+                      <div className="text-[10px] text-text-muted">{block.actorId}</div>
                     </td>
-                    <td className="p-3 font-sans text-slate-300 max-w-xs truncate" title={block.details}>
+                    <td className="p-3 font-sans text-text-muted max-w-xs truncate" title={block.details}>
                       {block.details}
                     </td>
-                    <td className="p-3 text-slate-500 text-[10px] max-w-[110px] truncate" title={block.prevHash}>
+                    <td className="p-3 text-text text-[10px] max-w-[110px] truncate" title={block.prevHash}>
                       {block.prevHash.substring(0, 14)}...
                     </td>
                     <td className="p-3 text-[10px] max-w-[130px]">

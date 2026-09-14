@@ -69,7 +69,7 @@ export const EvidenceModal: React.FC<EvidenceModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-      <div className="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl relative my-8">
+      <div className="bg-surface border border-border rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl relative my-8">
         {/* Top Watermark Stripe */}
         <div className="bg-rose-950 text-rose-300 border-b border-rose-800/80 px-4 py-2 text-center font-mono text-xs font-bold tracking-widest uppercase flex items-center justify-center space-x-2">
           <AlertTriangle className="w-4 h-4 text-rose-400" />
@@ -77,19 +77,19 @@ export const EvidenceModal: React.FC<EvidenceModalProps> = ({
         </div>
 
         {/* Header */}
-        <div className="p-5 border-b border-slate-800 flex items-center justify-between">
+        <div className="p-5 border-b border-border flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="p-2.5 rounded-xl bg-blue-950/60 border border-blue-800 text-blue-400">
               <FileText className="w-6 h-6" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-white">Forensic Evidence Package</h2>
-              <div className="text-xs font-mono text-slate-400">Record ID: {evidenceId}</div>
+              <h2 className="text-base font-bold text-text">Forensic Evidence Package</h2>
+              <div className="text-xs font-mono text-text-muted">Record ID: {evidenceId}</div>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-white transition-colors"
+            className="p-1.5 rounded-lg hover:bg-surface text-text-muted hover:text-text transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -98,9 +98,9 @@ export const EvidenceModal: React.FC<EvidenceModalProps> = ({
         {/* Content Body */}
         <div className="p-5 space-y-4 max-h-[60vh] overflow-y-auto font-sans text-xs">
           {/* Certificate Metadata Card */}
-          <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-4 space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-              <span className="text-slate-400 uppercase font-mono text-[10px] tracking-wider">
+          <div className="bg-bg/80 border border-border rounded-xl p-4 space-y-3">
+            <div className="flex items-center justify-between border-b border-border pb-2">
+              <span className="text-text-muted uppercase font-mono text-[10px] tracking-wider">
                 Jurisdiction & Authority
               </span>
               <span className="bg-emerald-950 text-emerald-300 border border-emerald-800/80 px-2 py-0.5 rounded font-mono text-[10px] flex items-center space-x-1">
@@ -109,71 +109,71 @@ export const EvidenceModal: React.FC<EvidenceModalProps> = ({
               </span>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 text-slate-300 font-mono">
+            <div className="grid grid-cols-2 gap-3 text-text-muted font-mono">
               <div>
-                <span className="text-slate-500 block text-[10px]">ISSUING AUTHORITY</span>
+                <span className="text-text-muted block text-[10px]">ISSUING AUTHORITY</span>
                 <strong>Apex State Command Hub</strong>
               </div>
               <div>
-                <span className="text-slate-500 block text-[10px]">CERTIFYING OFFICER</span>
+                <span className="text-text-muted block text-[10px]">CERTIFYING OFFICER</span>
                 <strong>{roleConfig.title} ({roleConfig.badge})</strong>
               </div>
               <div>
-                <span className="text-slate-500 block text-[10px]">ORIGIN SENSOR</span>
+                <span className="text-text-muted block text-[10px]">ORIGIN SENSOR</span>
                 <strong>{alert.cameraId} ({alert.district})</strong>
               </div>
               <div>
-                <span className="text-slate-500 block text-[10px]">INCIDENT TIMESTAMP</span>
+                <span className="text-text-muted block text-[10px]">INCIDENT TIMESTAMP</span>
                 <strong>2026-09-14 {alert.timestamp} IST</strong>
               </div>
             </div>
           </div>
 
           {/* Cryptographic Proof Card */}
-          <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-4 space-y-2 font-mono">
-            <div className="text-slate-400 text-[10px] uppercase tracking-wider">
+          <div className="bg-bg/80 border border-border rounded-xl p-4 space-y-2 font-mono">
+            <div className="text-text-muted text-[10px] uppercase tracking-wider">
               Cryptographic Immutability Digest (SHA-256)
             </div>
-            <div className="bg-slate-900 border border-slate-800 p-2.5 rounded text-[11px] text-emerald-400 break-all select-all font-mono">
+            <div className="bg-surface border border-border p-2.5 rounded text-[11px] text-emerald-400 break-all select-all font-mono">
               {mockSha256}
             </div>
-            <div className="text-[10px] text-slate-500">
+            <div className="text-[10px] text-text-muted">
               Anchored into Gujarat Police Concept Tamper-Proof Audit Chain (Block #84192)
             </div>
           </div>
 
           {/* Incident Event Breakdown */}
           <div className="space-y-2">
-            <div className="text-slate-400 font-mono text-[10px] uppercase tracking-wider">
+            <div className="text-text-muted font-mono text-[10px] uppercase tracking-wider">
               Target & Incident Metadata
             </div>
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3 space-y-1.5 font-mono text-[11px]">
+            <div className="bg-bg/80 border border-border rounded-xl p-3 space-y-1.5 font-mono text-[11px]">
               <div className="flex justify-between">
-                <span className="text-slate-500">Alert Type:</span>
-                <span className="text-white font-semibold">{alert.type}</span>
+                <span className="text-text-muted">Alert Type:</span>
+                <span className="text-text font-semibold">{alert.type}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">Classification Confidence:</span>
+                <span className="text-text-muted">Classification Confidence:</span>
                 <span className="text-blue-400">{alert.confidence}% (Synthetic Score)</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">Location Point:</span>
-                <span className="text-slate-300">{alert.locationName}</span>
+                <span className="text-text-muted">Location Point:</span>
+                <span className="text-text-muted">{alert.locationName}</span>
               </div>
               {alert.details.plateNumber && (
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Flagged Plate:</span>
+                  <span className="text-text-muted">Flagged Plate:</span>
                   <span className="text-amber-400">{alert.details.plateNumber}</span>
                 </div>
               )}
               {alert.details.targetId && (
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Target ID:</span>
+                  <span className="text-text-muted">Target ID:</span>
                   <span className="text-rose-400">{alert.details.targetId}</span>
                 </div>
               )}
               {alert.details.notes && (
-                <div className="pt-2 border-t border-slate-800 text-slate-400 text-[10px] font-sans">
+                <div className="pt-2 border-t border-border text-text-muted text-[10px] font-sans">
                   {alert.details.notes}
                 </div>
               )}
@@ -187,10 +187,10 @@ export const EvidenceModal: React.FC<EvidenceModalProps> = ({
         </div>
 
         {/* Footer Actions */}
-        <div className="p-4 bg-slate-950 border-t border-slate-800 flex items-center justify-between">
+        <div className="p-4 bg-bg border-t border-border flex items-center justify-between">
           <button
             onClick={onClose}
-            className="px-4 py-2 rounded-lg text-white hover:text-slate-200 font-bold text-xs hover:bg-slate-900 transition-colors"
+            className="px-4 py-2 rounded-lg text-text hover:text-text-muted font-bold text-xs hover:bg-surface transition-colors"
           >
             Cancel
           </button>
@@ -198,7 +198,7 @@ export const EvidenceModal: React.FC<EvidenceModalProps> = ({
           <div className="flex items-center space-x-2">
             <button
               onClick={handlePrint}
-              className="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center space-x-1.5 transition-colors"
+              className="px-3.5 py-2 rounded-lg bg-surface hover:bg-border text-text font-bold text-xs flex items-center space-x-1.5 transition-colors"
             >
               <Printer className="w-3.5 h-3.5" />
               <span>Print Dossier</span>
@@ -206,7 +206,7 @@ export const EvidenceModal: React.FC<EvidenceModalProps> = ({
 
             <button
               onClick={downloadJson}
-              className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center space-x-1.5 shadow-lg transition-colors"
+              className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-text font-bold text-xs flex items-center space-x-1.5 shadow-lg transition-colors"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Download Evidence Package (.json)</span>

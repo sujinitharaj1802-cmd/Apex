@@ -18,7 +18,7 @@ export const AboutPage: React.FC = () => {
       phase: 'PHASE 1',
       title: 'Ahmedabad Urban Core Pilot',
       duration: '0 – 6 Months',
-      badgeColor: 'bg-blue-600 text-white',
+      badgeColor: 'bg-blue-600 text-text',
       objective: 'Deploy and validate the Apex federation middleware across 500 edge nodes in Ahmedabad.',
       capabilities: [
         'VMS federation of AMC Smart City feeds with city traffic police',
@@ -32,7 +32,7 @@ export const AboutPage: React.FC = () => {
       phase: 'PHASE 2',
       title: 'Major City-Wide Rollout',
       duration: '6 – 12 Months',
-      badgeColor: 'bg-purple-600 text-white',
+      badgeColor: 'bg-purple-600 text-text',
       objective: 'Scale federation across Surat, Vadodara, and Rajkot Municipal Corporations.',
       capabilities: [
         'Interoperability across ~15,000 cameras across 4 commissionerates',
@@ -46,7 +46,7 @@ export const AboutPage: React.FC = () => {
       phase: 'PHASE 3',
       title: 'State-Wide 33-District Expansion',
       duration: '12 – 24 Months',
-      badgeColor: 'bg-emerald-600 text-white',
+      badgeColor: 'bg-emerald-600 text-text',
       objective: 'Federate all 26 participating Gujarat state departments into a single sovereign platform.',
       capabilities: [
         'Unified intelligence layer over 80,000+ statewide surveillance nodes',
@@ -60,7 +60,7 @@ export const AboutPage: React.FC = () => {
       phase: 'PHASE 4',
       title: 'Central AI & Predictive Optimization',
       duration: '24 – 36 Months',
-      badgeColor: 'bg-amber-600 text-white font-bold',
+      badgeColor: 'bg-amber-600 text-text font-bold',
       objective: 'Deploy state GPU clusters for advanced predictive policing and behavioral flow optimization.',
       capabilities: [
         'Predictive crime pattern heatmapping using historical incident vectors',
@@ -75,25 +75,25 @@ export const AboutPage: React.FC = () => {
   return (
     <div className="p-4 max-w-[1750px] mx-auto space-y-5 font-sans">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
         <div>
           <div className="flex items-center space-x-2">
             <Calendar className="w-5 h-5 text-blue-400" />
-            <h1 className="text-lg font-bold text-white">Project Proposal Roadmap & Deployment Governance</h1>
+            <h1 className="text-lg font-bold text-text">Project Proposal Roadmap & Deployment Governance</h1>
           </div>
-          <p className="text-xs text-slate-400 font-mono">
+          <p className="text-xs text-text-muted font-mono">
             Strategic 36-month rollout schedule and mandatory institutional pre-requisites for production
           </p>
         </div>
 
-        <div className="text-xs font-mono bg-[#0F172A] border border-slate-800 px-3 py-1.5 rounded text-slate-300">
-          Proposal Scope: <strong className="text-white">Months 0 – 36</strong>
+        <div className="text-xs font-mono bg-surface border border-border px-3 py-1.5 rounded text-text-muted">
+          Proposal Scope: <strong className="text-text">Months 0 – 36</strong>
         </div>
       </div>
 
       {/* 4-Phase Roadmap Grid */}
       <div className="space-y-3">
-        <div className="text-xs font-mono font-bold text-slate-300 uppercase tracking-wider">
+        <div className="text-xs font-mono font-bold text-text-muted uppercase tracking-wider">
           Phased Implementation Plan
         </div>
 
@@ -101,28 +101,28 @@ export const AboutPage: React.FC = () => {
           {roadmapPhases.map((p) => (
             <div
               key={p.phase}
-              className="bg-[#0F172A] border border-slate-800 rounded-lg p-4 flex flex-col justify-between space-y-3 shadow-sm"
+              className="bg-surface border border-border rounded-lg p-4 flex flex-col justify-between space-y-3 shadow-sm"
             >
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between">
                   <span className={`px-2 py-0.5 rounded font-mono text-[10px] font-bold ${p.badgeColor}`}>
                     {p.phase}
                   </span>
-                  <span className="text-[11px] font-mono text-slate-400">{p.duration}</span>
+                  <span className="text-[11px] font-mono text-text-muted">{p.duration}</span>
                 </div>
 
-                <h3 className="text-sm font-bold text-white leading-snug">{p.title}</h3>
+                <h3 className="text-sm font-bold text-text leading-snug">{p.title}</h3>
 
-                <div className="text-xs text-slate-300 font-sans leading-relaxed">
-                  <strong className="text-slate-200">Objective:</strong> {p.objective}
+                <div className="text-xs text-text-muted font-sans leading-relaxed">
+                  <strong className="text-text">Objective:</strong> {p.objective}
                 </div>
 
-                <div className="space-y-1 pt-1.5 border-t border-slate-800">
+                <div className="space-y-1 pt-1.5 border-t border-border">
                   <span className="text-[10px] font-mono text-slate-500 uppercase font-bold block">
                     Major Capabilities:
                   </span>
                   {p.capabilities.map((cap, cIdx) => (
-                    <div key={cIdx} className="flex items-start space-x-1.5 text-[11px] text-slate-400">
+                    <div key={cIdx} className="flex items-start space-x-1.5 text-[11px] text-text-muted">
                       <span className="text-blue-400 font-bold">•</span>
                       <span>{cap}</span>
                     </div>
@@ -130,7 +130,7 @@ export const AboutPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="p-2.5 bg-[#0B1120] border border-slate-800 rounded text-[11px] font-sans text-slate-300">
+              <div className="p-2.5 bg-bg border border-border rounded text-[11px] font-sans text-text-muted">
                 <strong className="text-emerald-400 block font-mono text-[10px] uppercase">Expected Outcome:</strong>
                 {p.expectedOutcome}
               </div>
@@ -142,13 +142,13 @@ export const AboutPage: React.FC = () => {
       {/* Two Comparative Sections: Prototype vs Real Deployment Requirements */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pt-2">
         {/* WHAT THIS PROTOTYPE DEMONSTRATES */}
-        <div className="bg-[#0F172A] border border-slate-800 rounded-lg p-5 space-y-3">
-          <div className="flex items-center space-x-2 text-blue-400 font-mono font-bold text-xs uppercase tracking-wider border-b border-slate-800 pb-2">
+        <div className="bg-surface border border-border rounded-lg p-5 space-y-3">
+          <div className="flex items-center space-x-2 text-blue-400 font-mono font-bold text-xs uppercase tracking-wider border-b border-border pb-2">
             <CheckCircle2 className="w-4 h-4" />
             <span>WHAT THIS PROTOTYPE DEMONSTRATES</span>
           </div>
 
-          <div className="space-y-2.5 text-xs text-slate-300 leading-relaxed font-sans">
+          <div className="space-y-2.5 text-xs text-text-muted leading-relaxed font-sans">
             <p>
               • <strong>Unified Command & Control:</strong> Proves that a single interface can visualize state-wide camera health and alerts across district boundaries.
             </p>
@@ -168,13 +168,13 @@ export const AboutPage: React.FC = () => {
         </div>
 
         {/* WHAT WOULD BE REQUIRED FOR REAL DEPLOYMENT */}
-        <div className="bg-[#0F172A] border border-slate-800 rounded-lg p-5 space-y-3">
-          <div className="flex items-center space-x-2 text-amber-400 font-mono font-bold text-xs uppercase tracking-wider border-b border-slate-800 pb-2">
+        <div className="bg-surface border border-border rounded-lg p-5 space-y-3">
+          <div className="flex items-center space-x-2 text-amber-400 font-mono font-bold text-xs uppercase tracking-wider border-b border-border pb-2">
             <AlertTriangle className="w-4 h-4" />
             <span>WHAT WOULD BE REQUIRED FOR REAL DEPLOYMENT</span>
           </div>
 
-          <div className="space-y-2.5 text-xs text-slate-300 leading-relaxed font-sans">
+          <div className="space-y-2.5 text-xs text-text-muted leading-relaxed font-sans">
             <p>
               • <strong>Government Approvals & MoUs:</strong> Formal inter-departmental data-sharing agreements between Home Dept, Municipal Corporations, NHAI, and Ports.
             </p>

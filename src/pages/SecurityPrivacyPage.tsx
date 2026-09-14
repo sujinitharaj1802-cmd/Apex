@@ -59,27 +59,27 @@ export const SecurityPrivacyPage: React.FC = () => {
   return (
     <div className="p-4 max-w-[1750px] mx-auto space-y-4 font-sans">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
         <div>
           <div className="flex items-center space-x-2">
             <ShieldCheck className="w-5 h-5 text-emerald-400" />
-            <h1 className="text-lg font-bold text-white">PROPOSED SECURITY ARCHITECTURE</h1>
+            <h1 className="text-lg font-bold text-text">PROPOSED SECURITY ARCHITECTURE</h1>
           </div>
-          <p className="text-xs text-slate-400 font-mono">
+          <p className="text-xs text-text-muted font-mono">
             Zero Trust and Privacy-by-Design governance framework for statewide law enforcement operations
           </p>
         </div>
 
         <div className="text-xs font-mono bg-amber-950/60 border border-amber-800 text-amber-300 px-3 py-1.5 rounded">
-          Status: <strong className="text-white">Proposed Security Architecture</strong>
+          Status: <strong className="text-text">Proposed Security Architecture</strong>
         </div>
       </div>
 
       {/* DPDP Act 2023 Notice */}
-      <div className="bg-[#0F172A] border border-slate-800 rounded-lg p-3.5 flex items-start space-x-3 text-xs">
+      <div className="bg-surface border border-border rounded-lg p-3.5 flex items-start space-x-3 text-xs">
         <Info className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
-        <div className="text-slate-200 leading-relaxed">
-          <strong className="text-white">Governance & Statutory Compliance Notice:</strong> This page outlines the mandatory cybersecurity and privacy controls specified in the Apex proposal. Prior to production, an independent Cert-In empaneled security audit and a Data Protection Impact Assessment (DPIA) under the Digital Personal Data Protection (DPDP) Act 2023 must be formally conducted.
+        <div className="text-text leading-relaxed">
+          <strong className="text-text">Governance & Statutory Compliance Notice:</strong> This page outlines the mandatory cybersecurity and privacy controls specified in the Apex proposal. Prior to production, an independent Cert-In empaneled security audit and a Data Protection Impact Assessment (DPIA) under the Digital Personal Data Protection (DPDP) Act 2023 must be formally conducted.
         </div>
       </div>
 
@@ -90,15 +90,15 @@ export const SecurityPrivacyPage: React.FC = () => {
           return (
             <div
               key={idx}
-              className="bg-[#0F172A] border border-slate-800 rounded-lg p-4 space-y-2.5 shadow-sm hover:border-slate-700 transition-colors"
+              className="bg-surface border border-border rounded-lg p-4 space-y-2.5 shadow-sm hover:border-border transition-colors"
             >
               <div className="flex items-center space-x-2">
-                <div className="p-2 rounded bg-slate-900 border border-slate-700 text-blue-400">
+                <div className="p-2 rounded bg-surface border border-border text-blue-400">
                   <Icon className="w-4 h-4" />
                 </div>
-                <h3 className="text-xs font-bold text-white">{p.title}</h3>
+                <h3 className="text-xs font-bold text-text">{p.title}</h3>
               </div>
-              <p className="text-xs text-slate-200 leading-relaxed">
+              <p className="text-xs text-text leading-relaxed">
                 {p.desc}
               </p>
             </div>
@@ -107,36 +107,36 @@ export const SecurityPrivacyPage: React.FC = () => {
       </div>
 
       {/* Privacy by Design Four Principles */}
-      <div className="bg-[#0F172A] border border-slate-800 rounded-lg p-5 space-y-3">
-        <div className="text-xs font-bold text-white uppercase tracking-wider border-b border-slate-800 pb-2">
+      <div className="bg-surface border border-border rounded-lg p-5 space-y-3">
+        <div className="text-xs font-bold text-text uppercase tracking-wider border-b border-border pb-2">
           FOUR PILLARS OF APEX PRIVACY-BY-DESIGN
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs font-mono">
-          <div className="bg-[#0B1120] p-3 rounded border border-slate-800 space-y-1">
+          <div className="bg-bg p-3 rounded border border-border space-y-1">
             <span className="text-emerald-400 font-bold block">1. PRIVACY BY DESIGN</span>
-            <p className="text-slate-400 text-[11px] font-sans">
+            <p className="text-text-muted text-[11px] font-sans">
               Privacy controls embedded directly into camera firmware and ingestion APIs rather than bolted on.
             </p>
           </div>
 
-          <div className="bg-[#0B1120] p-3 rounded border border-slate-800 space-y-1">
+          <div className="bg-bg p-3 rounded border border-border space-y-1">
             <span className="text-blue-400 font-bold block">2. DATA MINIMIZATION</span>
-            <p className="text-slate-400 text-[11px] font-sans">
+            <p className="text-text-muted text-[11px] font-sans">
               Only metadata hashes and verified alert vectors are transmitted to central servers; raw video stays local.
             </p>
           </div>
 
-          <div className="bg-[#0B1120] p-3 rounded border border-slate-800 space-y-1">
+          <div className="bg-bg p-3 rounded border border-border space-y-1">
             <span className="text-purple-400 font-bold block">3. ACCESS CONTROL</span>
-            <p className="text-slate-400 text-[11px] font-sans">
+            <p className="text-text-muted text-[11px] font-sans">
               Cryptographic tokens tied to officer badge number and case FIR reference to prevent unauthorized lookups.
             </p>
           </div>
 
-          <div className="bg-[#0B1120] p-3 rounded border border-slate-800 space-y-1">
+          <div className="bg-bg p-3 rounded border border-border space-y-1">
             <span className="text-amber-400 font-bold block">4. AUDITABILITY</span>
-            <p className="text-slate-400 text-[11px] font-sans">
+            <p className="text-text-muted text-[11px] font-sans">
               Complete mathematical chain-of-custody logging preventing any untraceable operator queries or redactions.
             </p>
           </div>

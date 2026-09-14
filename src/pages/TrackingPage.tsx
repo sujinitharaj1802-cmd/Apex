@@ -26,25 +26,25 @@ export const TrackingPage: React.FC = () => {
   return (
     <div className="p-4 max-w-[1750px] mx-auto space-y-4 font-sans">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-3">
         <div>
           <div className="flex items-center space-x-2">
             <Navigation className="w-5 h-5 text-blue-400" />
-            <h1 className="text-lg font-bold text-white">Cross-District Vehicle Tracking & Trajectory Reconstruction</h1>
+            <h1 className="text-lg font-bold text-text">Cross-District Vehicle Tracking & Trajectory Reconstruction</h1>
           </div>
-          <p className="text-xs text-slate-400 font-mono">
+          <p className="text-xs text-text-muted font-mono">
             Seamless multi-camera vehicle tracking across municipal and district police boundaries
           </p>
         </div>
 
         {/* Target Vehicle Selector */}
         <div className="flex items-center space-x-2">
-          <span className="text-xs font-mono text-slate-400">Target Vehicle:</span>
+          <span className="text-xs font-mono text-text-muted">Target Vehicle:</span>
           <select
             value={selectedScenario.id}
             onChange={(e) => handleScenarioChange(e.target.value)}
             aria-label="Select target vehicle scenario"
-            className="bg-[#0F172A] border border-slate-700 text-white text-xs font-mono py-1.5 px-3 rounded focus:outline-none focus:border-blue-500"
+            className="bg-surface border border-border text-text text-xs font-mono py-1.5 px-3 rounded focus:outline-none focus:border-blue-500"
           >
             {TRACKING_SCENARIOS.map((sc) => (
               <option key={sc.id} value={sc.id}>
@@ -56,11 +56,11 @@ export const TrackingPage: React.FC = () => {
       </div>
 
       {/* Core Architectural Value Banner */}
-      <div className="bg-[#0F172A] border border-slate-800 rounded-lg p-3 flex items-center justify-between text-xs">
-        <div className="flex items-center space-x-2.5 text-slate-300 font-sans">
+      <div className="bg-surface border border-border rounded-lg p-3 flex items-center justify-between text-xs">
+        <div className="flex items-center space-x-2.5 text-text-muted font-sans">
           <Layers className="w-4 h-4 text-blue-400 shrink-0" />
           <span>
-            <strong className="text-white">The Federation Advantage:</strong> Before Apex, Ahmedabad, Vadodara, Bharuch, and Surat ran isolated VMS silos. Target <strong className="text-amber-400 font-bold">{selectedScenario.plateOrId}</strong> can now be seamlessly reconstructed along the state transit corridor in under 30 seconds.
+            <strong className="text-text">The Federation Advantage:</strong> Before Apex, Ahmedabad, Vadodara, Bharuch, and Surat ran isolated VMS silos. Target <strong className="text-amber-400 font-bold">{selectedScenario.plateOrId}</strong> can now be seamlessly reconstructed along the state transit corridor in under 30 seconds.
           </span>
         </div>
       </div>
@@ -75,19 +75,19 @@ export const TrackingPage: React.FC = () => {
           />
 
           {/* Requested Bottom Summary Strip */}
-          <div className="bg-[#0F172A] border border-slate-800 rounded-lg p-3.5 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
-            <div className="flex items-center space-x-2 text-slate-300">
+          <div className="bg-surface border border-border rounded-lg p-3.5 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+            <div className="flex items-center space-x-2 text-text-muted">
               <span className="w-2 h-2 rounded-full bg-blue-400" />
               <span>
-                <strong className="text-white">{stats.observationsCount}</strong> camera observations
+                <strong className="text-text">{stats.observationsCount}</strong> camera observations
               </span>
               <span className="text-slate-600">•</span>
               <span>
-                <strong className="text-white">{stats.locationsCount}</strong> locations
+                <strong className="text-text">{stats.locationsCount}</strong> locations
               </span>
               <span className="text-slate-600">•</span>
               <span>
-                <strong className="text-white">{stats.districtsCount}</strong> districts
+                <strong className="text-text">{stats.districtsCount}</strong> districts
               </span>
               <span className="text-slate-600">•</span>
               <span className="text-amber-400 font-bold">
@@ -95,21 +95,21 @@ export const TrackingPage: React.FC = () => {
               </span>
             </div>
 
-            <div className="text-[11px] text-slate-400">
-              Corridor: <strong className="text-slate-200">Ahmedabad ➔ Vadodara ➔ Bharuch ➔ Surat</strong>
+            <div className="text-[11px] text-text-muted">
+              Corridor: <strong className="text-text">Ahmedabad ➔ Vadodara ➔ Bharuch ➔ Surat</strong>
             </div>
           </div>
         </div>
 
         {/* Right: Chronological Observation Trail */}
-        <div className="lg:col-span-4 bg-[#0F172A] border border-slate-800 rounded-lg overflow-hidden flex flex-col h-[545px]">
+        <div className="lg:col-span-4 bg-surface border border-border rounded-lg overflow-hidden flex flex-col h-[545px]">
           {/* Header */}
-          <div className="p-3 bg-[#0B1120] border-b border-slate-800 flex items-center justify-between">
-            <div className="flex items-center space-x-2 text-xs font-mono text-white uppercase font-bold">
+          <div className="p-3 bg-bg border-b border-border flex items-center justify-between">
+            <div className="flex items-center space-x-2 text-xs font-mono text-text uppercase font-bold">
               <Clock className="w-4 h-4 text-blue-400" />
               <span>Chronological Observations</span>
             </div>
-            <span className="text-[10px] font-mono bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-800">
+            <span className="text-[10px] font-mono bg-surface text-text-muted px-2 py-0.5 rounded border border-border">
               {selectedScenario.waypoints.length} Optical Fixes
             </span>
           </div>
@@ -127,8 +127,8 @@ export const TrackingPage: React.FC = () => {
                     isCurrent
                       ? 'bg-blue-950/40 border-blue-500 shadow ring-1 ring-blue-500/50'
                       : isPast
-                      ? 'bg-slate-900/40 border-slate-800 text-slate-300'
-                      : 'bg-slate-950 border-slate-900 opacity-60 text-slate-500'
+                      ? 'bg-surface/40 border-border text-text-muted'
+                      : 'bg-bg border-slate-900 opacity-60 text-slate-500'
                   }`}
                 >
                   <div className="flex items-center justify-between text-[11px] font-mono mb-1">
@@ -136,26 +136,26 @@ export const TrackingPage: React.FC = () => {
                       <span
                         className={`w-5 h-5 rounded text-[10px] flex items-center justify-center font-bold ${
                           isCurrent
-                            ? 'bg-blue-600 text-white'
+                            ? 'bg-blue-600 text-text'
                             : isPast
-                            ? 'bg-slate-800 text-emerald-400 border border-slate-700'
-                            : 'bg-slate-900 text-slate-500'
+                            ? 'bg-slate-800 text-emerald-400 border border-border'
+                            : 'bg-surface text-slate-500'
                         }`}
                       >
                         #{idx + 1}
                       </span>
-                      <strong className={isCurrent ? 'text-white' : 'text-slate-300'}>{wp.cameraId}</strong>
+                      <strong className={isCurrent ? 'text-text' : 'text-text-muted'}>{wp.cameraId}</strong>
                     </div>
 
                     <span className="text-slate-400">{wp.timestamp}</span>
                   </div>
 
-                  <div className="text-xs font-semibold text-slate-100 pl-7">
+                  <div className="text-xs font-semibold text-text pl-7">
                     {wp.locationName}
                   </div>
 
-                  <div className="flex items-center justify-between text-[10px] font-mono pl-7 mt-1 text-slate-400">
-                    <span>District: <strong className="text-slate-300">{wp.district}</strong></span>
+                  <div className="flex items-center justify-between text-[10px] font-mono pl-7 mt-1 text-text-muted">
+                    <span>District: <strong className="text-text-muted">{wp.district}</strong></span>
                     <span className="text-emerald-400 font-bold">{wp.confidence}% conf</span>
                   </div>
 
@@ -171,9 +171,9 @@ export const TrackingPage: React.FC = () => {
           </div>
 
           {/* Active Fix Coordinate Lock */}
-          <div className="p-3 bg-[#0B1120] border-t border-slate-800 text-xs font-mono space-y-1">
+          <div className="p-3 bg-bg border-t border-border text-xs font-mono space-y-1">
             <div className="text-[10px] text-slate-500 uppercase tracking-wider">Active Geolocation Lock:</div>
-            <div className="text-white font-bold">
+            <div className="text-text font-bold">
               Lat {activeWaypoint.lat.toFixed(4)}, Lng {activeWaypoint.lng.toFixed(4)}
             </div>
             <div className="text-[10px] text-slate-400">
