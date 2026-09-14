@@ -75,7 +75,7 @@ export const DashboardPage: React.FC = () => {
       {/* 4 Core KPIs as explicitly specified */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         <StatCard
-          label="TOTAL CAMERAS"
+          label="Total Cameras"
           value={STATEWIDE_METRICS.totalCameras}
           subtext="Across 26 State Departments"
           targetTag="Statewide Infrastructure"
@@ -84,7 +84,7 @@ export const DashboardPage: React.FC = () => {
         />
 
         <StatCard
-          label="CAMERAS ONLINE"
+          label="Cameras Online"
           value={STATEWIDE_METRICS.camerasOnlinePercent}
           subtext={`${STATEWIDE_METRICS.camerasOnlineCount} Simulated Nodes Active`}
           trend="+0.4%"
@@ -95,7 +95,7 @@ export const DashboardPage: React.FC = () => {
         />
 
         <StatCard
-          label="ACTIVE ALERTS"
+          label="Active Alerts"
           value={STATEWIDE_METRICS.activeAlerts}
           subtext="Live Queue Under Operational Triage"
           trend={isFeedPaused ? 'Paused' : 'Streaming'}
@@ -106,7 +106,7 @@ export const DashboardPage: React.FC = () => {
         />
 
         <StatCard
-          label="ALERT RESPONSE"
+          label="Alert Response"
           value={STATEWIDE_METRICS.avgResponseTime}
           subtext="Simulated Edge-to-Console Latency"
           trend="-6 sec"
@@ -118,15 +118,15 @@ export const DashboardPage: React.FC = () => {
       </div>
 
       {/* Active Role Command Context Strip */}
-      <div className="bg-[#0B1120] border border-slate-800 rounded-lg p-3 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs font-mono shadow-xs">
+      <div className="bg-[#0E1626] border border-slate-800 rounded-sm p-3 flex flex-col md:flex-row md:items-center justify-between gap-3 text-xs">
         <div className="flex items-center space-x-3">
-          <div className="p-2 rounded bg-slate-800/80 border border-slate-700 text-blue-400">
+          <div className="p-2 rounded bg-slate-900 border border-slate-700 text-blue-400">
             <UserCheck className="w-4 h-4" />
           </div>
           <div>
             <div className="flex items-center space-x-2">
-              <span className="text-[10px] text-slate-400 uppercase font-semibold">Active Console Profile:</span>
-              <span className={`px-2 py-0.5 rounded text-[10px] font-bold border ${roleConfig.badgeColor}`}>
+              <span className="text-[11px] text-slate-400 font-semibold">Active Console Profile:</span>
+              <span className={`px-2 py-0.5 rounded-xs text-[11px] font-bold border ${roleConfig.badgeColor}`}>
                 {roleConfig.title} ({roleConfig.badge})
               </span>
               <span className="text-slate-500 hidden sm:inline">• {roleConfig.districtFocus}</span>
@@ -143,14 +143,14 @@ export const DashboardPage: React.FC = () => {
             <>
               <button
                 onClick={() => setCurrentScreen('alerts')}
-                className="px-2.5 py-1 rounded bg-red-950 text-red-300 border border-red-800 hover:bg-red-900 transition-colors text-[11px] flex items-center space-x-1"
+                className="px-2.5 py-1 rounded-xs bg-red-950 text-red-300 border border-red-800 hover:bg-red-900 transition-colors text-[11px] flex items-center space-x-1"
               >
                 <span>Triage Queue (45)</span>
                 <ChevronRight className="w-3 h-3" />
               </button>
               <button
                 onClick={() => setCurrentScreen('cameras')}
-                className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-colors text-[11px] flex items-center space-x-1"
+                className="px-2.5 py-1 rounded-xs bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-colors text-[11px] flex items-center space-x-1"
               >
                 <span>Camera Catalog</span>
                 <ChevronRight className="w-3 h-3" />
@@ -162,14 +162,14 @@ export const DashboardPage: React.FC = () => {
             <>
               <button
                 onClick={() => setCurrentScreen('tracking')}
-                className="px-2.5 py-1 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 hover:bg-emerald-900 transition-colors text-[11px] flex items-center space-x-1"
+                className="px-2.5 py-1 rounded-xs bg-emerald-950 text-emerald-300 border border-emerald-800 hover:bg-emerald-900 transition-colors text-[11px] flex items-center space-x-1"
               >
                 <span>Authorize Interception (SIM-VH-0238)</span>
                 <ChevronRight className="w-3 h-3" />
               </button>
               <button
                 onClick={() => setCurrentScreen('health')}
-                className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-colors text-[11px] flex items-center space-x-1"
+                className="px-2.5 py-1 rounded-xs bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-colors text-[11px] flex items-center space-x-1"
               >
                 <span>O&M SLA Queue</span>
                 <ChevronRight className="w-3 h-3" />
@@ -181,14 +181,14 @@ export const DashboardPage: React.FC = () => {
             <>
               <button
                 onClick={() => setCurrentScreen('integration')}
-                className="px-2.5 py-1 rounded bg-blue-950 text-blue-300 border border-blue-800 hover:bg-blue-900 transition-colors text-[11px] flex items-center space-x-1"
+                className="px-2.5 py-1 rounded-xs bg-blue-950 text-blue-300 border border-blue-800 hover:bg-blue-900 transition-colors text-[11px] flex items-center space-x-1"
               >
                 <span>26-Dept Federation</span>
                 <ChevronRight className="w-3 h-3" />
               </button>
               <button
                 onClick={() => setCurrentScreen('audit')}
-                className="px-2.5 py-1 rounded bg-amber-950 text-amber-300 border border-amber-800 hover:bg-amber-900 transition-colors text-[11px] flex items-center space-x-1"
+                className="px-2.5 py-1 rounded-xs bg-amber-950 text-amber-300 border border-amber-800 hover:bg-amber-900 transition-colors text-[11px] flex items-center space-x-1"
               >
                 <span>Verify SHA-256 Ledger</span>
                 <ChevronRight className="w-3 h-3" />
@@ -204,14 +204,14 @@ export const DashboardPage: React.FC = () => {
         <div className="lg:col-span-8 flex flex-col space-y-2">
           <div className="flex items-center justify-between px-1">
             <div className="flex items-center space-x-2">
-              <h2 className="text-xs font-mono font-bold text-slate-200 uppercase tracking-wider">
+              <h2 className="text-xs font-bold text-slate-200 tracking-tight">
                 Statewide GIS Sensor Network
               </h2>
-              <span className="text-[10px] font-mono bg-slate-900 border border-slate-700 px-2 py-0.5 rounded text-slate-300">
+              <span className="text-[11px] bg-slate-900 border border-slate-800 px-2 py-0.5 rounded-xs text-slate-400">
                 Representative simulated camera locations
               </span>
             </div>
-            <div className="text-[11px] text-slate-400 font-mono hidden sm:block">
+            <div className="text-[11px] text-slate-400 hidden sm:block">
               Click marker for telemetry • 80,000+ total fleet represented
             </div>
           </div>
@@ -226,20 +226,20 @@ export const DashboardPage: React.FC = () => {
         </div>
 
         {/* RIGHT: Live incident queue */}
-        <div className="lg:col-span-4 bg-[#0F172A] border border-slate-800 rounded-lg overflow-hidden flex flex-col h-[620px] shadow-lg">
+        <div className="lg:col-span-4 bg-[#0E1626] border border-slate-800 rounded-sm overflow-hidden flex flex-col h-[620px]">
           {/* Header */}
           <div className="p-3 bg-[#0B1120] border-b border-slate-800 flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Radio className="w-3.5 h-3.5 text-red-400" />
-              <h3 className="text-xs font-bold font-mono uppercase tracking-wider text-white">
-                LIVE INCIDENT CENTER
+              <h3 className="text-xs font-bold tracking-tight text-white">
+                Live Incident Center
               </h3>
             </div>
 
             <div className="flex items-center space-x-2">
               <button
                 onClick={toggleFeedPause}
-                className={`px-2 py-0.5 rounded text-[10px] font-mono border transition-colors flex items-center space-x-1 ${
+                className={`px-2 py-0.5 rounded-xs text-[11px] border transition-colors flex items-center space-x-1 ${
                   isFeedPaused
                     ? 'bg-amber-950 text-amber-300 border-amber-700'
                     : 'bg-slate-900 text-slate-300 border-slate-700 hover:text-white'
@@ -249,12 +249,12 @@ export const DashboardPage: React.FC = () => {
                 {isFeedPaused ? (
                   <>
                     <Play className="w-2.5 h-2.5 fill-current" />
-                    <span>PAUSE LIVE FEED</span>
+                    <span>Pause Live Feed</span>
                   </>
                 ) : (
                   <>
                     <Pause className="w-2.5 h-2.5" />
-                    <span>PAUSE LIVE FEED</span>
+                    <span>Pause Live Feed</span>
                   </>
                 )}
               </button>
@@ -263,7 +263,7 @@ export const DashboardPage: React.FC = () => {
 
           {/* Alert Queue List */}
           <div className="flex-1 overflow-y-auto p-2 space-y-2">
-            {alerts.slice(0, 30).map((alert) => {
+            {alerts.slice(0, 30).map((alert, idx) => {
               const borderClass =
                 alert.severity === 'CRITICAL'
                   ? 'border-l-4 border-l-red-500 border-slate-800'
@@ -275,7 +275,7 @@ export const DashboardPage: React.FC = () => {
 
               return (
                 <div
-                  key={alert.id}
+                  key={`${alert.id}-${idx}`}
                   onClick={() => handleAlertClick(alert)}
                   className={`p-2.5 rounded bg-slate-900/60 hover:bg-slate-800/80 border transition-all cursor-pointer ${borderClass}`}
                 >

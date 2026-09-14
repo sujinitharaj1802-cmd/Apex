@@ -37,7 +37,7 @@ export const Sidebar: React.FC = () => {
 
   const navGroups: NavGroup[] = [
     {
-      groupTitle: 'OVERVIEW',
+      groupTitle: 'Overview',
       items: [
         {
           id: 'dashboard',
@@ -47,7 +47,7 @@ export const Sidebar: React.FC = () => {
       ],
     },
     {
-      groupTitle: 'OPERATIONS',
+      groupTitle: 'Operations',
       items: [
         {
           id: 'alerts',
@@ -71,7 +71,7 @@ export const Sidebar: React.FC = () => {
       ],
     },
     {
-      groupTitle: 'INTELLIGENCE',
+      groupTitle: 'Intelligence',
       items: [
         {
           id: 'analytics',
@@ -88,7 +88,7 @@ export const Sidebar: React.FC = () => {
       ],
     },
     {
-      groupTitle: 'SYSTEM',
+      groupTitle: 'System',
       items: [
         {
           id: 'health',
@@ -119,7 +119,7 @@ export const Sidebar: React.FC = () => {
       ],
     },
     {
-      groupTitle: 'PROJECT',
+      groupTitle: 'Project',
       items: [
         {
           id: 'architecture',
@@ -151,7 +151,7 @@ export const Sidebar: React.FC = () => {
       <div className="p-3 space-y-4 overflow-y-auto flex-1">
         {navGroups.map((group) => (
           <div key={group.groupTitle} className="space-y-1">
-            <div className="px-3 text-[10px] font-bold tracking-wider text-white uppercase">
+            <div className="px-3 text-[11px] font-bold tracking-normal text-slate-400">
               {group.groupTitle}
             </div>
 
