@@ -61,19 +61,19 @@ export const Navbar: React.FC = () => {
       {/* Center Controls: Live Clock, Feed Control, Presentation Mode */}
       <div className="hidden lg:flex items-center space-x-3">
         {/* Live Clock */}
-        <div className="flex items-center space-x-1.5 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded text-xs text-white font-bold">
+        <div className="flex items-center space-x-1.5 bg-[#182238] border border-slate-600 px-2.5 py-1 rounded text-xs text-white font-bold shadow-xs">
           <Clock className="w-3.5 h-3.5 text-blue-400" />
-          <span>{timeStr}</span>
+          <span className="text-white font-bold">{timeStr}</span>
         </div>
 
         {/* Live Feed Ticker Pause */}
         <button
           onClick={toggleFeedPause}
           title={isFeedPaused ? 'Resume simulated alert ticker' : 'Freeze simulated alert feed for presentation'}
-          className={`flex items-center space-x-1.5 px-2.5 py-1 rounded text-xs border transition-colors ${
+          className={`flex items-center space-x-1.5 px-2.5 py-1 rounded text-xs border transition-colors font-bold ${
             isFeedPaused
-              ? 'bg-amber-950/80 text-white border-amber-500 font-bold'
-              : 'bg-slate-900 text-emerald-300 border-slate-700 hover:bg-slate-800 font-bold'
+              ? 'bg-amber-950 text-amber-200 border-amber-500'
+              : 'bg-[#182238] text-emerald-300 border-slate-600 hover:bg-[#1E293B]'
           }`}
         >
           {isFeedPaused ? (
@@ -83,8 +83,8 @@ export const Navbar: React.FC = () => {
             </>
           ) : (
             <>
-              <Pause className="w-3 h-3" />
-              <span>FEED STREAMING</span>
+              <Pause className="w-3 h-3 text-emerald-300" />
+              <span className="text-emerald-300">FEED STREAMING</span>
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block ml-1" />
             </>
           )}
@@ -95,30 +95,30 @@ export const Navbar: React.FC = () => {
           onClick={togglePresentationMode}
           className={`flex items-center space-x-1.5 px-2.5 py-1 rounded text-xs border transition-colors font-bold ${
             isPresentationMode
-              ? 'bg-blue-900/60 text-white border-blue-400'
-              : 'bg-slate-900 text-white border-slate-700 hover:bg-slate-800'
+              ? 'bg-blue-900/90 text-white border-blue-400'
+              : 'bg-[#182238] text-white border-slate-600 hover:bg-[#1E293B]'
           }`}
           title="Start 6-step automated kiosk presentation"
         >
-          <MonitorPlay className="w-3.5 h-3.5" />
-          <span>{isPresentationMode ? 'Kiosk Tour Active' : 'Presentation Tour'}</span>
+          <MonitorPlay className="w-3.5 h-3.5 text-blue-300" />
+          <span className="text-white font-bold">{isPresentationMode ? 'Kiosk Tour Active' : 'Presentation Tour'}</span>
         </button>
 
         {/* Theme Switcher Toggle (White Theme / Dark Theme) */}
         <button
           onClick={toggleTheme}
-          className="flex items-center space-x-1.5 px-2.5 py-1 rounded text-xs font-bold border border-slate-700 bg-slate-900 text-white hover:bg-slate-800 transition-colors"
+          className="flex items-center space-x-1.5 px-2.5 py-1 rounded text-xs font-bold border border-slate-600 bg-[#182238] text-white hover:bg-[#1E293B] transition-colors shadow-xs"
           title={`Switch to ${theme === 'light' ? 'Dark' : 'White/Light'} Theme`}
         >
           {theme === 'light' ? (
             <>
               <Sun className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-              <span>White Theme</span>
+              <span className="text-white font-bold">White Theme</span>
             </>
           ) : (
             <>
               <Moon className="w-3.5 h-3.5 text-blue-300" />
-              <span>Dark Theme</span>
+              <span className="text-white font-bold">Dark Theme</span>
             </>
           )}
         </button>
@@ -129,12 +129,12 @@ export const Navbar: React.FC = () => {
         {/* Active Alert Counter Pill */}
         <div
           onClick={() => setCurrentScreen('alerts')}
-          className="cursor-pointer flex items-center space-x-1.5 bg-slate-900 hover:bg-slate-850 border border-slate-800 px-2.5 py-1 rounded text-xs text-white"
+          className="cursor-pointer flex items-center space-x-1.5 bg-[#182238] hover:bg-[#1E293B] border border-slate-600 px-2.5 py-1 rounded text-xs text-white shadow-xs"
           title="Click to view live incidents"
         >
-          <span className="w-2 h-2 rounded-full bg-red-500" />
+          <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
           <span className="font-bold text-white">{STATEWIDE_METRICS.activeAlerts}</span>
-          <span className="text-[10px] text-slate-200 uppercase hidden sm:inline">Active Alerts</span>
+          <span className="text-[10px] text-slate-200 uppercase font-bold hidden sm:inline">Active Alerts</span>
         </div>
 
         {/* Role Switcher Dropdown */}

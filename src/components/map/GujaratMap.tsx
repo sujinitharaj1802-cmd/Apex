@@ -49,14 +49,14 @@ export const GujaratMap: React.FC<GujaratMapProps> = ({
       attributionControl: false,
     });
 
-    // Base tiles based on current theme
+    // Base tiles based on current theme (OpenStreetMap standard for light mode to avoid API key limits)
     const tileUrl =
       theme === 'light'
-        ? 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
+        ? 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
         : 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
 
     const tiles = L.tileLayer(tileUrl, {
-      subdomains: 'abcd',
+      subdomains: 'abc',
       maxZoom: 19,
     }).addTo(map);
     tileLayerRef.current = tiles;
@@ -189,7 +189,7 @@ export const GujaratMap: React.FC<GujaratMapProps> = ({
     if (tileLayerRef.current) {
       const tileUrl =
         theme === 'light'
-          ? 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
+          ? 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
           : 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
       tileLayerRef.current.setUrl(tileUrl);
     }
@@ -229,74 +229,75 @@ export const GujaratMap: React.FC<GujaratMapProps> = ({
   return (
     <div className="relative w-full rounded-lg overflow-hidden border border-slate-800 shadow-md bg-[#080D1A]">
       {/* Top Map Control Bar */}
-      <div className="absolute top-3 left-3 z-[400] flex flex-wrap items-center gap-2 bg-[#0F172A]/95 p-1.5 rounded border border-slate-700 shadow-lg text-xs font-mono">
-        {/* District Selector */}
-        <select
-          value={selectedDistrict}
-          onChange={(e) => handleDistrictChange(e.target.value)}
-          aria-label="Filter cameras by district"
-          className="bg-[#0B1120] text-slate-200 border border-slate-700 rounded px-2.5 py-1 text-xs focus:outline-none focus:border-blue-500"
-        >
-          <option value="all">Gujarat State (All {cameras.length} Representative Nodes)</option>
-          {DISTRICT_CENTROIDS.map((c) => (
-            <option key={c.district} value={c.district.toLowerCase()}>
-              {c.district} District ({c.cameraBase} Nodes)
-            </option>
-          ))}
-        </select>
+      <div className="absolute top-3 left-3 right-3 z-[400] flex flex-wrap items-center justify-between gap-2 bg-[#0F172A]/95 p-2 rounded border border-slate-700 shadow-lg text-xs font-mono">
+        <div className="flex flex-wrap items-center gap-2">
+          {/* District Selector */}
+          <select
+            value={selectedDistrict}
+            onChange={(e) => handleDistrictChange(e.target.value)}
+            aria-label="Filter cameras by district"
+            className="bg-[#0B1120] text-slate-200 border border-slate-700 rounded px-2.5 py-1 text-xs focus:outline-none focus:border-blue-500"
+          >
+            <option value="all">Gujarat State (All {cameras.length} Representative Nodes)</option>
+            {DISTRICT_CENTROIDS.map((c) => (
+              <option key={c.district} value={c.district.toLowerCase()}>
+                {c.district} District ({c.cameraBase} Nodes)
+              </option>
+            ))}
+          </select>
 
-        {/* Status Filter */}
-        <div className="flex items-center space-x-1 bg-[#0B1120] rounded p-0.5 border border-slate-800">
-          <Filter className="w-3 h-3 text-slate-500 ml-1" />
+          {/* Status Filter */}
+          <div className="flex items-center space-x-1 bg-[#0B1120] rounded p-0.5 border border-slate-800">
+            <Filter className="w-3 h-3 text-slate-500 ml-1" />
+            <button
+              onClick={() => setInternalStatusFilter('all')}
+              className={`px-2 py-0.5 rounded text-[11px] transition-colors ${
+                internalStatusFilter === 'all' ? 'bg-slate-800 text-white font-bold' : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              All
+            </button>
+            <button
+              onClick={() => setInternalStatusFilter('online')}
+              className={`px-1.5 py-0.5 rounded text-[10px] transition-colors ${
+                internalStatusFilter === 'online' ? 'bg-emerald-950 text-emerald-300 font-bold' : 'text-slate-400 hover:text-emerald-400'
+              }`}
+            >
+              Online
+            </button>
+            <button
+              onClick={() => setInternalStatusFilter('degraded')}
+              className={`px-1.5 py-0.5 rounded text-[10px] transition-colors ${
+                internalStatusFilter === 'degraded' ? 'bg-amber-950 text-amber-300 font-bold' : 'text-slate-400 hover:text-amber-400'
+              }`}
+            >
+              Degraded
+            </button>
+            <button
+              onClick={() => setInternalStatusFilter('offline')}
+              className={`px-1.5 py-0.5 rounded text-[10px] transition-colors ${
+                internalStatusFilter === 'offline' ? 'bg-red-950 text-red-300 font-bold' : 'text-slate-400 hover:text-red-400'
+              }`}
+            >
+              Offline
+            </button>
+          </div>
+
+          {/* Reset View Button */}
           <button
-            onClick={() => setInternalStatusFilter('all')}
-            className={`px-2 py-0.5 rounded text-[11px] transition-colors ${
-              internalStatusFilter === 'all' ? 'bg-slate-800 text-white font-bold' : 'text-slate-400 hover:text-slate-200'
-            }`}
+            onClick={resetView}
+            title="Reset Statewide Gujarat View"
+            className="p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300"
           >
-            All
-          </button>
-          <button
-            onClick={() => setInternalStatusFilter('online')}
-            className={`px-1.5 py-0.5 rounded text-[10px] transition-colors ${
-              internalStatusFilter === 'online' ? 'bg-emerald-950 text-emerald-300 font-bold' : 'text-slate-400 hover:text-emerald-400'
-            }`}
-          >
-            Online
-          </button>
-          <button
-            onClick={() => setInternalStatusFilter('degraded')}
-            className={`px-1.5 py-0.5 rounded text-[10px] transition-colors ${
-              internalStatusFilter === 'degraded' ? 'bg-amber-950 text-amber-300 font-bold' : 'text-slate-400 hover:text-amber-400'
-            }`}
-          >
-            Degraded
-          </button>
-          <button
-            onClick={() => setInternalStatusFilter('offline')}
-            className={`px-1.5 py-0.5 rounded text-[10px] transition-colors ${
-              internalStatusFilter === 'offline' ? 'bg-red-950 text-red-300 font-bold' : 'text-slate-400 hover:text-red-400'
-            }`}
-          >
-            Offline
+            <Maximize2 className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        {/* Reset View Button */}
-        <button
-          onClick={resetView}
-          title="Reset Statewide Gujarat View"
-          className="p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300"
-        >
-          <Maximize2 className="w-3.5 h-3.5" />
-        </button>
-      </div>
-
-      {/* Explicit Representative Label (Top Right) */}
-      <div className="absolute top-3 right-3 z-[400] bg-[#0F172A]/90 border border-slate-700 px-3 py-1 rounded text-[10px] font-mono text-slate-300 shadow">
-        <span className="text-amber-400 font-bold mr-1.5">Note:</span>
-        <span>405 Representative simulated camera locations</span>
-        <span className="text-slate-500 ml-1.5">(of 80,000+ statewide fleet)</span>
+        {/* Fleet Representation Note */}
+        <div className="bg-[#0B1120] border border-slate-800 px-2.5 py-1 rounded text-[10px] font-mono text-slate-300">
+          <span className="text-amber-400 font-bold mr-1">Note:</span>
+          <span>405 Nodes represented (of 80,000+ fleet)</span>
+        </div>
       </div>
 
       {/* Map Legend Overlay (Bottom Left) */}

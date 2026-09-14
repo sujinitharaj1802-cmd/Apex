@@ -15,13 +15,13 @@ export const StatusPill: React.FC<StatusPillProps> = ({ status, size = 'sm' }) =
     case 'CRITICAL':
     case 'OFFLINE':
     case 'NOT ONBOARDED':
-      style = 'bg-red-950/80 text-white font-bold border-red-700';
-      dotColor = 'bg-red-500';
+      style = 'bg-red-700 text-white font-bold border-red-500';
+      dotColor = 'bg-white';
       break;
 
     case 'HIGH':
-      style = 'bg-orange-950/80 text-white font-bold border-orange-700';
-      dotColor = 'bg-orange-500';
+      style = 'bg-orange-600 text-white font-bold border-orange-400';
+      dotColor = 'bg-white';
       break;
 
     case 'MEDIUM':
@@ -31,28 +31,28 @@ export const StatusPill: React.FC<StatusPillProps> = ({ status, size = 'sm' }) =
     case 'AI ANALYSIS':
     case 'ASSIGNED':
     case 'IN-PROGRESS':
-      style = 'bg-amber-950/80 text-white font-bold border-amber-600';
-      dotColor = 'bg-amber-400';
+      style = 'bg-amber-600 text-white font-bold border-amber-400';
+      dotColor = 'bg-white';
       break;
 
     case 'ONLINE':
     case 'SIMULATED CONNECTED':
     case 'CONNECTED':
     case 'RESOLVED':
-      style = 'bg-emerald-950/80 text-white font-bold border-emerald-600';
-      dotColor = 'bg-emerald-400';
+      style = 'bg-emerald-700 text-white font-bold border-emerald-500';
+      dotColor = 'bg-white';
       break;
 
     case 'DISPATCHED':
-      style = 'bg-blue-950/80 text-white font-bold border-blue-600';
-      dotColor = 'bg-blue-400';
+      style = 'bg-blue-600 text-white font-bold border-blue-400';
+      dotColor = 'bg-white';
       break;
 
     case 'DETECTED':
     case 'LOW':
     default:
-      style = 'bg-slate-800 text-white font-bold border-slate-700';
-      dotColor = 'bg-slate-300';
+      style = 'bg-slate-700 text-white font-bold border-slate-500';
+      dotColor = 'bg-slate-200';
       break;
   }
 

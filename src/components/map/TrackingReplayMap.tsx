@@ -40,7 +40,7 @@ export const TrackingReplayMap: React.FC<TrackingReplayMapProps> = ({
 
     const tileUrl =
       theme === 'light'
-        ? 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
+        ? 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
         : 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
 
     const tiles = L.tileLayer(tileUrl, {
