@@ -146,8 +146,19 @@ html:not([data-theme="dark"]) aside button {
   font-weight: 600 !important;
 }
 
-[data-theme="light"] aside button:hover,
-html:not([data-theme="dark"]) aside button:hover {
+[data-theme="light"] aside button.bg-blue-600,
+html:not([data-theme="dark"]) aside button.bg-blue-600 {
+  background-color: #2563EB !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="light"] aside button.bg-blue-600 *,
+html:not([data-theme="dark"]) aside button.bg-blue-600 * {
+  color: #FFFFFF !important;
+}
+
+[data-theme="light"] aside button:hover:not(.bg-blue-600),
+html:not([data-theme="dark"]) aside button:hover:not(.bg-blue-600) {
   background-color: #F1F5F9 !important;
 }
 

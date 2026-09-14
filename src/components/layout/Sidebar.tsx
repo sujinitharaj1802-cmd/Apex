@@ -162,16 +162,16 @@ export const Sidebar: React.FC = () => {
                 <button
                   key={item.id}
                   onClick={() => setCurrentScreen(item.id)}
-                  className={`w-full flex items-center justify-between px-3 py-2 rounded text-left transition-colors ${
+                  className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-left transition-all ${
                     isActive
-                      ? 'bg-blue-600/30 text-white border border-blue-400 font-bold'
-                      : 'text-white hover:text-white hover:bg-slate-850 border border-transparent font-normal'
+                      ? 'bg-blue-600 text-white font-bold shadow-xs border border-blue-400'
+                      : 'text-slate-300 hover:text-white hover:bg-slate-800/60 border border-transparent font-semibold'
                   }`}
                 >
                   <div className="flex items-center space-x-2.5 min-w-0">
                     <Icon
                       className={`w-4 h-4 shrink-0 ${
-                        isActive ? 'text-blue-300' : 'text-slate-300'
+                        isActive ? 'text-white' : 'text-slate-400'
                       }`}
                     />
                     <span className="text-xs truncate">{item.label}</span>
